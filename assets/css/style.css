@@ -343,6 +343,11 @@ main {
   border-radius: 20px;
 }
 
+.avatar-box img {
+  border-radius: 20px;
+  border: 2px solid white;
+}
+
 .info-content .name {
   color: var(--white-2);
   font-size: var(--fs-3);

@@ -127,11 +127,7 @@
 
 a { 
   text-decoration: none; 
-  color: var(--dark-blue);
-}
-
-a:visited {
-  color: purple;
+  color: var(--white-2);
 }
 
 li { list-style: none; }

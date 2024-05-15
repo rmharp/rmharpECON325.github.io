@@ -130,6 +130,10 @@ a {
   color: var(--dark-blue);
 }
 
+a:visited {
+  color: purple;
+}
+
 li { list-style: none; }
 
 img, -icon, a, button, time, span { display: block; }

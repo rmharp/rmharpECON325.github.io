@@ -50,8 +50,8 @@
   );
   --text-gradient-blue: linear-gradient(
     to right, 
-    hsl(205, 100%, 33%), /* UNC Blue */
-    hsl(210, 100%, 42%)  /* A lighter shade of UNC Blue */
+    hsl(204, 72%, 73%), /* UNC Blue */
+    hsl(360, 100%, 100%)  /* White */
   );
 
   /* solid */
@@ -63,7 +63,7 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --unc-blue-crayola: hsl(205, 100%, 33%); /* UNC Blue */
+  --unc-blue-crayola: hsl(204, 72%, 73%); /* UNC Blue */
   --vegas-gold: hsl(45, 54%, 58%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);

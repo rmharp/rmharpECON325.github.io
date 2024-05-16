@@ -534,24 +534,30 @@ main {
 
 #terminal {
     background-color: black;
-    color: lime;
-    font-family: 'Consolas', 'Courier New', monospace;
+    color: var(--white-2);
+    font-family: monospace;
     padding: 10px;
+    white-space: nowrap;  /* Prevents wrapping to ensure line consistency */
 }
 
 #terminal input, #terminal div {
     background: none;
     border: none;
-    color: lime;  /* Ensures text color is consistent */
+    color: var(--white-2);  /* Uses the color variable */
     outline: none;
 }
 
 #terminal form {
     display: flex;
+    align-items: center; /* Aligns items vertically in line */
+}
+
+#terminal label {
+    margin-right: 5px;  /* Space between the label and the input */
 }
 
 #terminal input {
-    flex-grow: 1;
+    flex-grow: 1;        /* Allows input to take up remaining space */
 }
 
 

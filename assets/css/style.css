@@ -865,10 +865,7 @@ main {
   font-weight: var(--fw-300); /* Consistent font weight */
   line-height: 1.6; /* Consistent line height */
   margin-bottom: 10px; /* Adds some space between the list items */
-}
-
-.timeline-item ul li::marker {
-    color: var(--light-gray); /* Sets the color of the list markers */
+  list-style: disc;
 }
 
 /**

@@ -533,11 +533,25 @@ main {
 .about-text p { margin-bottom: 15px; }
 
 #terminal {
-    height: 300px;
     background-color: black;
-    color: white;
+    color: lime;
+    font-family: monospace;
     padding: 10px;
-    box-sizing: border-box;  // Ensures padding is included in height
+}
+
+#terminal input {
+    background: none;
+    border: none;
+    color: lime;
+    outline: none;
+}
+
+#terminal form {
+    display: flex;
+}
+
+#terminal span {
+    margin-right: 5px;
 }
 
 

@@ -6,24 +6,26 @@ document.addEventListener('DOMContentLoaded', function() {
     fitAddon.fit();
 
     terminal.writeln('Welcome to Riley Harper\'s Terminal! Type "help" for more options.');
+    terminal.write('> ');
 
     let inputBuffer = '';
 
-    terminal.onKey(keyEvent => {
-        const { key, domEvent } = keyEvent;
-        if (domEvent.keyCode === 13) { // Enter key
+    terminal.onKey(({ key, domEvent }) => {
+        if (domEvent.keyCode === 13) {  // Enter key
             terminal.writeln('');
             processCommand(inputBuffer);
             inputBuffer = '';
-            terminal.write('>');
-        } else if (domEvent.keyCode === 8) { // Backspace key
+            terminal.write('> ');
+        } else if (domEvent.keyCode === 8) {  // Backspace key
             if (inputBuffer.length > 0) {
                 terminal.write('\b \b');
                 inputBuffer = inputBuffer.slice(0, -1);
             }
         } else {
-            inputBuffer += key;
-            terminal.write(key);
+            if (domEvent.keyCode !== 16 && domEvent.keyCode !== 17) {  // Ignoring Shift and Ctrl keys
+                inputBuffer += key;
+                terminal.write(key);
+            }
         }
     });
 
@@ -41,5 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             default:
                 terminal.writeln('Unknown command: ' + command);
         }
+        terminal.write('> ');
     }
 });

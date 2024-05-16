@@ -53,6 +53,16 @@
     hsl(204, 72%, 73%), /* UNC Blue */
     hsl(360, 100%, 100%)  /* White */
   );
+ --bg-gradient-blue-1: linear-gradient(
+    to bottom right, 
+    hsl(204, 72%, 73%) 0%, /* UNC Blue */
+    hsl(360, 100%, 100%) 50%  /* White */
+  );
+  --bg-gradient-blue-2: linear-gradient(
+    135deg, 
+    hsl(204, 72%, 73%) 0%, /* UNC Blue */
+    hsl(360, 100%, 100%) 59.86%  /* White */
+  ), hsl(240, 2%, 13%); /* Gray */
 
   /* solid */
 
@@ -387,10 +397,10 @@ main {
 }
 
 .info_more-btn:hover,
-.info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
+.info_more-btn:focus { background: var(--bg-gradient-blue-1); }
 
 .info_more-btn:hover::before,
-.info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
+.info_more-btn:focus::before { background: var(--bg-gradient-blue-2); }
 
 .info_more-btn span { display: none; }
 
@@ -1220,9 +1230,9 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn ion-icon { font-size: 16px; }
 
-.form-btn:hover { background: var(--bg-gradient-yellow-1); }
+.form-btn:hover { background: var(--bg-gradient-blue-1); }
 
-.form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
+.form-btn:hover::before { background: var(--bg-gradient-blue-2); }
 
 .form-btn:disabled {
   opacity: 0.7;

@@ -857,7 +857,7 @@ main {
 
 .timeline-item ul {
   list-style-type: disc; /* Ensures nested lists use bullets */
-  padding-left: 20px; /* Adds some left padding for nested lists */
+  padding-left: 40px; /* Adds more left padding for nested lists */
 }
 
 .timeline-item ul li {

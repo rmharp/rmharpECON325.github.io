@@ -56,3 +56,23 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+const terminal = new Terminal();
+terminal.open(document.getElementById('terminal'));
+terminal.writeln('Welcome to Riley Harper\'s Terminal! Type "help" for more options.');
+
+terminal.onData(data => {
+  switch (data.trim()) {
+    case 'help':
+      terminal.writeln('Type "origin story" to learn about me, or "video 2" to watch a [blank] video.');
+      break;
+    case 'origin story':
+      terminal.writeln('Here\'s a brief history about me...');
+      break;
+    case 'video 2':
+      terminal.writeln('Please visit: [video URL]');
+      break;
+    default:
+      terminal.writeln('Unknown command: ' + data);
+  }
+});

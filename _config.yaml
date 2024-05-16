@@ -3,7 +3,7 @@ description: >
   Riley Harper's personal site showcasing professional and academic background, including involvement in AI research and community building at UNC Chapel Hill.
 
 baseurl: ""  # If your site is at the root of the domain, leave empty. If in a subdirectory like "/blog", put "/blog".
-url: "http://example.com"  # Replace with your actual URL
+url: "https://rmharp.github.io/"  # Replace with your actual URL
 
 # Build settings
 markdown: kramdown
@@ -17,11 +17,7 @@ plugins:
 build_command: jekyll build --config _config.yml,_config_prod.yml
 
 # SEO and social metadata
-twitter_username: yourusername
-github_username: yourgithubusername
-
-# External links
-favicon: ./assets/images/blacklogo.png
+github_username: rmharp
 
 # Google Analytics
 google_analytics: G-LXQLH66J4S

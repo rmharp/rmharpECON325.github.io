@@ -2,31 +2,33 @@
 
 // Terminal initialization and command processing code
 document.addEventListener('DOMContentLoaded', function () {
-    const terminal = new Terminal(); // Create a new terminal instance
-    const fitAddon = new FitAddon.FitAddon(); // Create a new instance of the FitAddon for responsive fitting
-    terminal.loadAddon(fitAddon); // Load the fit addon to the terminal
-    terminal.open(document.getElementById('terminal')); // Open the terminal in the specified container
-    fitAddon.fit(); // Adjust the size of the terminal to fit the container
+    const terminal = new Terminal();
+    const fitAddon = new FitAddon.FitAddon();
+    terminal.loadAddon(fitAddon);
+    terminal.open(document.getElementById('terminal'));
+    fitAddon.fit();
 
     terminal.writeln('Welcome to Riley Harper\'s Terminal! Type "help" for more options.');
-
-    let inputBuffer = ''; // Buffer to hold user input
+    terminal.write('>');
+    
+    let inputBuffer = '';
 
     terminal.onKey(({ key, domEvent }) => {
         const char = domEvent.key;
 
         if (char === 'Enter') {
-            terminal.write('\r\n'); // Move to next line on Enter
-            processCommand(inputBuffer); // Process the command
-            inputBuffer = ''; // Clear the input buffer
+            terminal.writeln('');
+            processCommand(inputBuffer);
+            inputBuffer = ''; // Clear the input buffer after processing
+            terminal.write('>');
         } else if (char === 'Backspace') {
-            if (inputBuffer.length > 0) {
-                inputBuffer = inputBuffer.substring(0, inputBuffer.length - 1); // Remove last character from buffer
-                terminal.write('\b \b'); // Erase the last character on the terminal
+            if (terminal._core.buffer.x > 1) {
+                terminal.write('\b \b'); // Move cursor back, write space to erase, and move cursor back again
+                inputBuffer = inputBuffer.slice(0, -1); // Remove last character from buffer
             }
         } else {
-            inputBuffer += char; // Add typed character to buffer
-            terminal.write(char); // Display typed character on the terminal
+            inputBuffer += char; // Append new character to buffer
+            terminal.write(char); // Display character in terminal
         }
     });
 
@@ -39,11 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 terminal.writeln('Here\'s a brief history about me...');
                 break;
             case 'video 2':
-                terminal.writeln('Please visit: [video URL]'); // Example, replace with actual URL
+                terminal.writeln('Please visit: [video URL]'); // Replace with actual URL
                 break;
             default:
                 terminal.writeln('Unknown command: ' + command);
         }
-        terminal.prompt(); // Optionally, prompt for next input
     }
 });

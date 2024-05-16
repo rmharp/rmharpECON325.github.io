@@ -867,6 +867,10 @@ main {
   margin-bottom: 10px; /* Adds some space between the list items */
 }
 
+.timeline-item ul li::marker {
+    color: var(--light-gray); /* Sets the color of the list markers */
+}
+
 /**
  * skills 
  */

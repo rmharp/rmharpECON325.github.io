@@ -464,8 +464,8 @@ main {
 .social-item .social-link:hover { color: var(--light-gray); }
 
 .social-item .social-icon {
-  width: 2px; /* Match the font-size of the other icons */
-  height: 2px; /* Ensure the image is square */
+  width: 18px; /* Match the font-size of the other icons */
+  height: 18px; /* Ensure the image is square */
   filter: grayscale(100%); /* Optionally apply a filter to match the color */
 }
 

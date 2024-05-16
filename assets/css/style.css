@@ -68,6 +68,7 @@
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --dark-blue: hsl(216, 59%, 18%);
+  --baby-blue: hsl(204, 72%, 89%);
 
   /**
    * typography
@@ -126,8 +127,7 @@
 }
 
 a { 
-  text-decoration: none; 
-  color: var(--white-2);
+  text-decoration: none;
 }
 
 li { list-style: none; }
@@ -804,7 +804,7 @@ main {
 }
 
 .timeline-item-title a {
-  font-size: var(--fs-8);
+  color: var(--baby-blue);
 }
 
 .timeline-list span {

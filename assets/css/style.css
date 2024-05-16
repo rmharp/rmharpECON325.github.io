@@ -463,10 +463,12 @@ main {
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
-.social-item .social-icon {
-  width: 17px; /* Match the font-size of the other icons */
-  height: 17px; /* Ensure the image is square */
-  filter: grayscale(100%); /* Optionally apply a filter to match the color */
+.social-link img.social-icon {
+  width: 20px; /* Match the font-size of the other icons */
+  height: 20px; /* Ensure the image is square */
+  filter: invert(1) grayscale(100%); /* Match the color */
+  border-radius: 50%; /* Make it circular to match the others */
+  object-fit: cover; /* Ensure it fits well within the container */
 }
 
 

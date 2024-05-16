@@ -1,3 +1,6 @@
+'use strict';
+
+// Terminal initialization and command processing code
 document.addEventListener('DOMContentLoaded', function () {
     const terminal = new Terminal(); // Create a new terminal instance
     const fitAddon = new FitAddon.FitAddon(); // Create a new instance of the FitAddon for responsive fitting

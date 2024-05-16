@@ -787,11 +787,7 @@ main {
   #RESUME
 \*-----------------------------------*/
 
-.article-title { margin-bottom: 30px; }
-
-.article-title a {
-  color: var(--white-2);
-}
+.article-title { margin-bottom: 30px; color: var(--white-2);}
 
 /**
  * education and experience 

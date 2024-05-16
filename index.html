@@ -226,59 +226,59 @@
                     </p>
 
                     <div id="terminal">
-                    <div id="output"></div>
-                    <form id="terminal-form">
-                        <label for="input">visitor@liveterm:$ ~ </label>
-                        <input type="text" id="input" autofocus autocomplete="off"/>
-                    </form>
-                </div>
-            
-                <script>
-                    (function() {
-                        'use strict';
-                        
-                        const terminalForm = document.getElementById('terminal-form');
-                        const terminalInput = document.getElementById('input');
-                        const terminalOutput = document.getElementById('output');
-            
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
-                                                   "Type 'sumfetch' to display summary.<br/>" +
-                                                   "Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.";
-                            terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
-                        });
-            
-                        terminalForm.addEventListener('submit', function(event) {
-                            event.preventDefault();  // Prevent form from submitting traditionally
-                            const command = terminalInput.value.trim();
-                            terminalInput.value = '';  // Clear the input after getting the command
-                            processCommand(command);
-                        });
-            
-                        function processCommand(command) {
-                            terminalOutput.innerHTML += `<div>visitor@liveterm:$ ~ ${command}</div>`;  // Display the command in the terminal
-                            switch(command.toLowerCase()) {
-                                case 'help':
-                                    terminalOutput.innerHTML += "<div>Type 'sumfetch' to display summary.<br/>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
-                                    break;
-                                case 'sumfetch':
-                                    const sumfetchOutput = `
-                                    <pre>
-                                        Your ASCII art or summary details here.
-                                    </pre>`;
-                                    terminalOutput.innerHTML += sumfetchOutput;
-                                    break;
-                                case 'repo':
-                                    terminalOutput.innerHTML += "<div>Opening GitHub repository...</div>";
-                                    window.open('https://github.com', '_blank');
-                                    break;
-                                default:
-                                    terminalOutput.innerHTML += `<div>shell: command not found: ${command}. Try 'help' to get started.</div>`;
+                        <div id="output"></div>
+                        <form id="terminal-form">
+                            <label for="input">visitor@liveterm:$ ~ </label>
+                            <input type="text" id="input" autofocus autocomplete="off"/>
+                        </form>
+                    </div>
+                
+                    <script>
+                        (function() {
+                            'use strict';
+                            
+                            const terminalForm = document.getElementById('terminal-form');
+                            const terminalInput = document.getElementById('input');
+                            const terminalOutput = document.getElementById('output');
+                
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
+                                                       "Type 'sumfetch' to display summary.<br/>" +
+                                                       "Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.";
+                                terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
+                            });
+                
+                            terminalForm.addEventListener('submit', function(event) {
+                                event.preventDefault();  // Prevent form from submitting traditionally
+                                const command = terminalInput.value.trim();
+                                terminalInput.value = '';  // Clear the input after getting the command
+                                processCommand(command);
+                            });
+                
+                            function processCommand(command) {
+                                terminalOutput.innerHTML += `<div>visitor@liveterm:$ ~ ${command}</div>`;  // Display the command in the terminal
+                                switch(command.toLowerCase()) {
+                                    case 'help':
+                                        terminalOutput.innerHTML += "<div>Type 'sumfetch' to display summary.<br/>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
+                                        break;
+                                    case 'sumfetch':
+                                        const sumfetchOutput = `
+                                        <pre>
+                                            Your ASCII art or summary details here.
+                                        </pre>`;
+                                        terminalOutput.innerHTML += sumfetchOutput;
+                                        break;
+                                    case 'repo':
+                                        terminalOutput.innerHTML += "<div>Opening GitHub repository...</div>";
+                                        window.open('https://github.com', '_blank');
+                                        break;
+                                    default:
+                                        terminalOutput.innerHTML += `<div>shell: command not found: ${command}. Try 'help' to get started.</div>`;
+                                }
+                                terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
                             }
-                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
-                        }
-                    })();
-                </script>
+                        })();
+                    </script>
                 </section>
 
             </article>

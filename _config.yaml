@@ -1,0 +1,39 @@
+title: Riley Harper
+description: > 
+  Riley Harper's personal site showcasing professional and academic background, including involvement in AI research and community building at UNC Chapel Hill.
+
+baseurl: ""  # If your site is at the root of the domain, leave empty. If in a subdirectory like "/blog", put "/blog".
+url: "http://example.com"  # Replace with your actual URL
+
+# Build settings
+markdown: kramdown
+theme: minima  # Or any other theme you've chosen; ensure it's supported by GitHub Pages
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Optional: specify a custom build command for GitHub Actions if not using the standard `jekyll build`
+build_command: jekyll build --config _config.yml,_config_prod.yml
+
+# SEO and social metadata
+twitter_username: yourusername
+github_username: yourgithubusername
+
+# External links
+favicon: ./assets/images/blacklogo.png
+
+# Google Analytics
+google_analytics: G-LXQLH66J4S
+
+# Include additional directories
+include:
+  - assets
+
+# Permalinks
+permalink: pretty
+
+# SASS/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed

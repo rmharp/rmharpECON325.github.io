@@ -859,6 +859,17 @@ main {
   line-height: 1.6;
 }
 
+.timeline-item ul {
+  list-style-type: disc; /* Ensures nested lists use bullets */
+  padding-left: 20px; /* Adds some left padding for nested lists */
+}
+
+.timeline-item ul li {
+  color: var(--light-gray); /* Ensures text color remains consistent */
+  font-weight: var(--fw-300); /* Consistent font weight */
+  line-height: 1.6; /* Consistent line height */
+  margin-bottom: 10px; /* Adds some space between the list items */
+}
 
 /**
  * skills 

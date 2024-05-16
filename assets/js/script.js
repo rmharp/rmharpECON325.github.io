@@ -55,3 +55,30 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
   });
 }
+
+document.getElementById('terminal-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const input = document.getElementById('input');
+    const command = input.value.trim();
+    input.value = '';
+    processCommand(command);
+});
+
+function processCommand(command) {
+    const output = document.getElementById('output');
+    switch(command.toLowerCase()) {
+        case 'help':
+            output.innerHTML += "<div>Type 'sumfetch' to display summary.<br/>Type 'repo' or click <a href='https://github.com'>here</a> for the Github repository.</div>";
+            break;
+        case 'sumfetch':
+            output.innerHTML += "<div>Summary info...</div>";
+            break;
+        case 'repo':
+            output.innerHTML += "<div>Opening Github repository...</div>";
+            window.open('https://github.com', '_blank');
+            break;
+        default:
+            output.innerHTML += `<div>shell: command not found: ${command}. Try 'help' to get started.</div>`;
+    }
+    output.scrollTop = output.scrollHeight;
+}

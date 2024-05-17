@@ -544,6 +544,10 @@ main {
     border: 2.5px solid var(--white-2); /* Optional, for better visibility */
 }
 
+#terminal a {
+	display: inline;
+}
+
 #terminal input, #terminal div {
     background: none;
     border: none;

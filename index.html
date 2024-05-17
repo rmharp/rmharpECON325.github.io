@@ -242,7 +242,7 @@
                 
                             document.addEventListener('DOMContentLoaded', function() {
                                 const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
-                                                       "Type 'sumfetch' to display summary.<br/>" +
+                                                       "Type 'logofetch' to display summary.<br/>" +
                                                        "Type 'repo' or click <a href='https://github.com/rmharp/rmharp.github.io'>here</a> for the GitHub repository.";
                                 terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
                             });
@@ -297,11 +297,11 @@
                                 
                                 switch(command.toLowerCase()) {
                                     case 'help':
-                                        const helpText = "<div>Type 'sumfetch' to display summary.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
+                                        const helpText = "<div>Type 'logofetch' to display summary.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
                                         typeEffect(responseDisplay, helpText, 25);
                                         break;
-                                    case 'sumfetch':
-                                        const sumfetchOutput = `
+                                    case 'logofetch':
+                                        const logofetchOutput = `
 <pre class="reduced-line-spacing">
                             ██████                                             
                      ████████████████████                                      
@@ -340,11 +340,10 @@
                             
 Riley Harper
 ----------------------------
-> CONTACT
-  - riley.harper@unc.edu
-  - linkedin.com/in/rileymharper
+riley.harper@unc.edu
+linkedin.com/in/rileymharper
 </pre>`;
-                                        typeEffect(responseDisplay, sumfetchOutput, 0);
+                                        typeEffect(responseDisplay, logofetchOutput, 0);
                                         break;
                                     case 'repo':
                                         typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);

@@ -253,13 +253,34 @@
                                 terminalInput.value = '';  // Clear the input after getting the command
                                 processCommand(command);
                             });
-                
+
+                            function typeEffect(element, text, delay = 100) {
+                                let i = 0;
+                                const typing = setInterval(() => {
+                                    if (i < text.length) {
+                                        element.innerHTML += text.charAt(i);
+                                        i++;
+                                    } else {
+                                        clearInterval(typing);
+                                    }
+                                }, delay);
+                            }
+                            
                             function processCommand(command) {
-                                terminalOutput.innerHTML += `<div>visitor@liveterm:$ ~ ${command}</div>`;  // Display the command in the terminal
+                                const output = document.getElementById('output');
+                                const fullCommand = `visitor@liveterm:$ ~ ${command}`;
+                            
+                                // Clear the current input line and prepare to display the command and its response
+                                output.innerHTML += '<div></div>'; // Append a new div for output
+                                const lastLine = output.lastElementChild;
+                            
+                                // Display the typed command
+                                typeEffect(lastLine, fullCommand, 50); // Adjust typing speed by changing delay
+
                                 switch(command.toLowerCase()) {
                                     case 'help':
-                                        terminalOutput.innerHTML += "<div>Type 'sumfetch' to display summary.<br/>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
-                                        break;
+                                        const helpText = "<div>Type 'sumfetch' to display summary.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
+                                        typeEffect(output, helpText, 50);
                                     case 'sumfetch':
                                     const sumfetchOutput = `
                                     <pre>
@@ -305,10 +326,10 @@
                                       - riley.harper@unc.edu
                                       - linkedin.com/in/rileymharper
                                     </pre>`;
-                                    output.innerHTML += "<div>Summary info...</div>";
+                                    typeEffect(output, sumfetchOutput, 50);
                                     break;
                                     case 'repo':
-                                        terminalOutput.innerHTML += "<div>Opening GitHub repository...</div>";
+                                        typeEffect(output, "<div>Opening GitHub repository...</div>", 50);
                                         window.open('https://github.com', '_blank');
                                         break;
                                     default:

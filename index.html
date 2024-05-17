@@ -243,7 +243,7 @@
                             document.addEventListener('DOMContentLoaded', function() {
                                 const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
                                                        "Type 'sumfetch' to display summary.<br/>" +
-                                                       "Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.";
+                                                       "Type 'repo' or click <a href='https://github.com/rmharp/rmharp.github.io'>here</a> for the GitHub repository.";
                                 terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
                             });
 
@@ -349,7 +349,7 @@
                                         break;
                                     case 'repo':
                                         typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);
-                                        window.open('https://github.com', '_blank');
+                                        window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
                                         break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);

@@ -246,6 +246,16 @@
                                                        "Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.";
                                 terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
                             });
+
+                            document.addEventListener('keydown', function(event) {
+                                // Check for 'K' key and either Cmd (metaKey) or Ctrl key
+                                if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
+                                    event.preventDefault();  // Prevent default behavior associated with Ctrl + K or Cmd + K
+                                    const terminalOutput = document.getElementById('output');
+                                    terminalOutput.innerHTML = '';  // Clear the terminal output
+                                    // You might want to reset any other state or variables associated with the output here
+                                }
+                            });
                 
                             terminalForm.addEventListener('submit', function(event) {
                                 event.preventDefault();  // Prevent form from submitting traditionally
@@ -254,10 +264,14 @@
                                 processCommand(command);
                             });
 
+                            function stripHtml(html) {
+                                const doc = new DOMParser().parseFromString(html, 'text/html');
+                                return doc.body.textContent || "";
+                            }
+                            
                             function typeEffect(element, html, delay) {
                                 let i = 0;
-                                element.innerHTML = html;  // Set the HTML content initially
-                                const text = element.textContent;  // Extract text content from HTML
+                                const text = stripHtml(html);  // Extract text content from HTML string;
                                 element.textContent = '';  // Clear the element for typing effect
                             
                                 const typing = setInterval(() => {
@@ -272,20 +286,19 @@
                             }
                             
                             function processCommand(command) {
-                                const output = document.getElementById('output');
                                 const fullCommand = `visitor@liveterm:$ ~ ${command}`;
+
+                                // Append the command to the terminal output
+                                terminalOutput.innerHTML += `<div>${fullCommand}</div>`;
                             
-                                // Clear the current input line and prepare to display the command and its response
-                                output.innerHTML += '<div></div>'; // Append a new div for output
-                                const lastLine = output.lastElementChild;
-                            
-                                // Display the typed command
-                                typeEffect(lastLine, fullCommand, 50); // Adjust typing speed by changing delay
+                                // Append a new div for the response
+                                const responseDisplay = document.createElement('div');
+                                terminalOutput.appendChild(responseDisplay);
 
                                 switch(command.toLowerCase()) {
                                     case 'help':
                                         const helpText = "<div>Type 'sumfetch' to display summary.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
-                                        typeEffect(output, helpText, 25);
+                                        typeEffect(responseDisplay, helpText, 25);
                                         break;
                                     case 'sumfetch':
                                         const sumfetchOutput = `
@@ -332,17 +345,17 @@
                                           - riley.harper@unc.edu
                                           - linkedin.com/in/rileymharper
                                         </pre>`;
-                                        typeEffect(output, sumfetchOutput, 25);
+                                        typeEffect(responseDisplay, sumfetchOutput, 25);
                                         break;
                                     case 'repo':
-                                        typeEffect(output, "<div>Opening GitHub repository...</div>", 0);
+                                        typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);
                                         window.open('https://github.com', '_blank');
                                         break;
                                     default:
-                                        terminalOutput.innerHTML += `<div>shell: command not found: ${command}. Try 'help' to get started.</div>`;
+                                        typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
                                 }
                                 terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
-                            }
+                            }, fullCommand.length * 50);
                         })();
                     </script>
                 </section>

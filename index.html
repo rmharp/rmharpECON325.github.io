@@ -289,6 +289,8 @@
                             const terminalForm = document.getElementById('terminal-form');
                             const terminalInput = document.getElementById('input');
                             const terminalOutput = document.getElementById('output');
+
+                            let userScrolledUp = false;
                 
                             document.addEventListener('DOMContentLoaded', function() {
                                 const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
@@ -412,8 +414,29 @@ Riley Harper
                                         window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
                                         break;
                                     case 'origin story':
-                                        const videoHtml = '<video width="320" height="240" controls><source src="assets/videos/video1.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-                                        typeEffect(responseDisplay, videoHtml, 0);
+                                        const videoContainer = document.createElement('div');
+                                        videoContainer.classList.add('video-container');
+                                        videoContainer.innerHTML = `
+                                            <video width="320" height="240" controls>
+                                                <source src="assets/videos/video1.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        `;
+                                        document.body.appendChild(videoContainer);
+                        
+                                        const videoElement = videoContainer.querySelector('video');
+                                        videoElement.addEventListener('loadedmetadata', function() {
+                                            videoContainer.classList.add('video-grow');
+                                        });
+                        
+                                        videoElement.addEventListener('ended', function() {
+                                            videoContainer.classList.remove('video-grow');
+                                            videoContainer.addEventListener('transitionend', function() {
+                                                videoContainer.remove();
+                                            });
+                                        });
+                        
+                                        videoElement.play();
                                         break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);

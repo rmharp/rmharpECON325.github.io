@@ -327,14 +327,14 @@ main {
     width: 320px;
     height: 240px;
     overflow: hidden;
-    transition: transform 1s ease-in-out;
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
     z-index: 1000;
 }
 
 .video-container.video-grow {
-    transform: translate(-50%, -50%) scale(3);
-    width: 100%;
-    height: 100%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 100vw;
+    height: 100vh;
 }
 
 .video-container video {

@@ -539,8 +539,6 @@ main {
     background-color: black;
     color: var(--white-2);
     padding: 10px;
-    font-size: var(--fs-6);
-    line-height: var(--fs-6);
     font-family: monospace;
     border-radius: 20px;
     border: 2.5px solid var(--white-2); /* Optional, for better visibility */

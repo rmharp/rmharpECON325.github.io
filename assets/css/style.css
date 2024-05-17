@@ -541,7 +541,8 @@ main {
     padding: 10px;
     line-height: 18px;
     font-family: monospace;
-    border: 2.5px solid #ccc; /* Optional, for better visibility */
+    border-radius: 20px;
+    border: 2.5px solid var(--white-2); /* Optional, for better visibility */
 }
 
 #terminal input, #terminal div {

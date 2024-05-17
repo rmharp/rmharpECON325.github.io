@@ -473,7 +473,7 @@ main {
 }
 
 .svg-container:hover svg path {
-    fill: #D3D3D3; /* Light gray color on hover */
+    fill: --light-gray-70;
 }
 
 /*-----------------------------------*\

@@ -544,9 +544,10 @@ main {
     border: 2.5px solid var(--white-2); /* Optional, for better visibility */
 }
 
-#terminal a {
+#terminal a, #terminal a:visited {
     white-space: nowrap; /* Prevents wrapping at all */
     display: inline; /* Ensures inline display */
+    color: var(--white-2);
 }
 
 #terminal input, #terminal div {

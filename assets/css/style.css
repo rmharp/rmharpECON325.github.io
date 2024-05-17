@@ -538,7 +538,7 @@ main {
     width: 100%; /* Adjust width as necessary */
     background-color: black;
     color: var(--white-2);
-    padding: 10px;
+    padding: 5px;
     font-family: monospace;
     border-radius: 20px;
     border: 2.5px solid var(--white-2); /* Optional, for better visibility */

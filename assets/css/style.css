@@ -551,6 +551,11 @@ main {
     outline: none;
 }
 
+
+#terminal label {
+    margin-right: 10px;  /* Space between the label and the input */
+}
+
 #terminal form {
     display: flex;
     align-items: center; /* Aligns items vertically in line */

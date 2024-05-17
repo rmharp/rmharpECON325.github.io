@@ -553,7 +553,8 @@ main {
 
 
 #terminal label {
-    margin-right: 10px;  /* Space between the label and the input */
+    white-space: nowrap; /* Prevents the label from wrapping */
+    padding-right: 10px; /* Adds some space between the label and the input */
 }
 
 #terminal form {

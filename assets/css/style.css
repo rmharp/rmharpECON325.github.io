@@ -464,12 +464,12 @@ main {
 .social-item .social-link:hover { color: var(--light-gray); }
 
 .custom-icon path {
-    fill: hsla(0, 0%, 84%, 0.7);
+    fill: gray;
     transition: fill 0.3s ease;
 }
 
 .custom-icon:hover path {
-    fill: hsl(0, 0%, 98%);
+    fill: var(--light-gray-70);
 }
 
 /*-----------------------------------*\

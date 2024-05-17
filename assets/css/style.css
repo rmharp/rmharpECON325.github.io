@@ -463,12 +463,12 @@ main {
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
-.custom-icon {
+.custom-icon path {
     fill: hsla(0, 0%, 84%, 0.7);
     transition: fill 0.3s ease;
 }
 
-.custom-icon:hover {
+.custom-icon:hover path {
     fill: hsl(0, 0%, 98%);
 }
 

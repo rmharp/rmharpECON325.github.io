@@ -315,6 +315,11 @@
                                 processCommand(command);
                             });
 
+                            terminalOutput.addEventListener('scroll', function() {
+                                // Check if user scrolled up
+                                userScrolledUp = terminalOutput.scrollTop + terminalOutput.clientHeight < terminalOutput.scrollHeight;
+                            });
+
                             function stripHtml(html) {
                                 const doc = new DOMParser().parseFromString(html, 'text/html');
                                 return doc.body.textContent || "";
@@ -322,16 +327,22 @@
                             
                             function typeEffect(element, html, delay) {
                                 let i = 0;
-                                const text = stripHtml(html);  // Extract text content from HTML string;
+                                const text = stripHtml(html);  // Extract text content from HTML string
                                 element.textContent = '';  // Clear the element for typing effect
                             
                                 const typing = setInterval(() => {
                                     if (i < text.length) {
                                         element.textContent += text.charAt(i);
                                         i++;
+                                        if (!userScrolledUp) {
+                                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output if the user hasn't scrolled up
+                                        }
                                     } else {
                                         clearInterval(typing);
                                         element.innerHTML = html;  // Restore original HTML after typing effect
+                                        if (!userScrolledUp) {
+                                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Ensure scrolling to the bottom after typing effect completes
+                                        }
                                     }
                                 }, delay);
                             }
@@ -400,8 +411,12 @@ Riley Harper
                                         typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);
                                         window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
                                         break;
+                                    case 'origin story':
+                                        const videoHtml = '<video width="320" height="240" controls><source src="assets/videos/video1.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+                                        typeEffect(responseDisplay, videoHtml, 0);
+                                        break;
                                     default:
-                                    typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
+                                        typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
                             }
                             terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
                         }

@@ -463,17 +463,13 @@ main {
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
-.svg-container svg {
-    cursor: pointer; /* Changes cursor to pointer to indicate it's interactive */
-    transition: fill 0.3s; /* Smooth transition for the fill color */
+.custom-icon {
+    fill: hsla(0, 0%, 84%, 0.7);
+    transition: fill 0.3s ease;
 }
 
-.svg-container svg path {
-    fill: var(--light-gray-70); /* Default fill color */
-}
-
-.svg-container:hover svg path {
-    fill: var(--white-2);
+.custom-icon:hover {
+    fill: hsl(0, 0%, 98%);
 }
 
 /*-----------------------------------*\

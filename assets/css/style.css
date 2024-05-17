@@ -469,11 +469,11 @@ main {
 }
 
 .svg-container svg path {
-    fill: #808080; /* Default fill color */
+    fill: var(--light-gray-70); /* Default fill color */
 }
 
 .svg-container:hover svg path {
-    fill: --light-gray-70;
+    fill: var(--white-2);
 }
 
 /*-----------------------------------*\

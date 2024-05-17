@@ -539,10 +539,9 @@ main {
     background-color: black;
     color: var(--white-2);
     padding: 10px;
-    font-size: 16px;
     line-height: 18px;
     font-family: monospace;
-    border: 1px solid #ccc; /* Optional, for better visibility */
+    border: 2.5px solid #ccc; /* Optional, for better visibility */
 }
 
 #terminal input, #terminal div {

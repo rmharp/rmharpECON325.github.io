@@ -254,14 +254,18 @@
                                 processCommand(command);
                             });
 
-                            function typeEffect(element, text, delay = 100) {
+                            function typeEffect(element, text, delay) {
                                 let i = 0;
+                                const tempDiv = document.createElement('div'); // Temporary div to hold HTML
+                                tempDiv.innerHTML = text; // Set the HTML content
+                            
                                 const typing = setInterval(() => {
-                                    if (i < text.length) {
-                                        element.innerHTML += text.charAt(i);
+                                    if (i < tempDiv.textContent.length) {
+                                        element.textContent += tempDiv.textContent.charAt(i);
                                         i++;
                                     } else {
                                         clearInterval(typing);
+                                        element.innerHTML = tempDiv.innerHTML; // Transfer final HTML content once done
                                     }
                                 }, delay);
                             }

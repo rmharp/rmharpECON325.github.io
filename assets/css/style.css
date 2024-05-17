@@ -533,11 +533,15 @@ main {
 .about-text p { margin-bottom: 15px; }
 
 #terminal {
+    height: 432px; /* 18px line height x 24 lines */
+    overflow-y: auto; /* Allows scrolling */
     background-color: black;
     color: var(--white-2);
     font-family: monospace;
     padding: 10px;
     white-space: nowrap;  /* Prevents wrapping to ensure line consistency */
+    font-size: 16px;
+    line-height: 18px; /* Adjust line height as needed */
 }
 
 #terminal input, #terminal div {

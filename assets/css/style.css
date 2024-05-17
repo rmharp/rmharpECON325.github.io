@@ -533,13 +533,14 @@ main {
 .about-text p { margin-bottom: 15px; }
 
 #terminal {
-    height: 432px; /* Assuming 18px line height x 24 lines */
+    height: 384px; /* Assuming 16px line height x 24 lines */
     overflow-y: auto; /* Enables vertical scrolling within the terminal */
     width: 100%; /* Adjust width as necessary */
     background-color: black;
     color: var(--white-2);
     padding: 10px;
-    line-height: 18px;
+    font-size: var(--fs-6);
+    line-height: var(--fs-6);
     font-family: monospace;
     border-radius: 20px;
     border: 2.5px solid var(--white-2); /* Optional, for better visibility */

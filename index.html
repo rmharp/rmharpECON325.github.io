@@ -256,16 +256,17 @@
 
                             function typeEffect(element, text, delay) {
                                 let i = 0;
-                                const tempDiv = document.createElement('div'); // Temporary div to hold HTML
-                                tempDiv.innerHTML = text; // Set the HTML content
+                                element.innerHTML = html;  // Set the HTML content initially
+                                const text = element.textContent;  // Extract text content from HTML
+                                element.textContent = '';  // Clear the element for typing effect
                             
                                 const typing = setInterval(() => {
-                                    if (i < tempDiv.textContent.length) {
-                                        element.textContent += tempDiv.textContent.charAt(i);
+                                    if (i < text.length) {
+                                        element.textContent += text.charAt(i)(i);
                                         i++;
                                     } else {
                                         clearInterval(typing);
-                                        element.innerHTML = tempDiv.innerHTML; // Transfer final HTML content once done
+                                        element.innerHTML = html; // Restore original HTML after typing effect
                                     }
                                 }, delay);
                             }

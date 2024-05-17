@@ -243,7 +243,8 @@
                             document.addEventListener('DOMContentLoaded', function() {
                                 const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
                                                        "Type 'logofetch' to display summary.<br/>" +
-                                                       "Type 'repo' or click <a href='https://github.com/rmharp/rmharp.github.io'>here</a> for the GitHub repository.";
+                                                       "Type 'repo' or click <a href='https://github.com/rmharp/rmharp.github.io'>here</a> for the GitHub repository.<br/><br/>" +
+                                                        "[cmd+k]: clear terminal.";
                                 terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
                             });
 

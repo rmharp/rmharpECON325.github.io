@@ -572,6 +572,9 @@ main {
     flex-grow: 1;        /* Allows input to take up remaining space */
 }
 
+.reduced-line-spacing {
+    line-height: 1; /* Adjust the value as needed */
+}
 
 /**
  * #service 

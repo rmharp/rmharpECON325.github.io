@@ -545,7 +545,8 @@ main {
 }
 
 #terminal a {
-	display: inline;
+    white-space: nowrap; /* Prevents wrapping at all */
+    display: inline; /* Ensures inline display */
 }
 
 #terminal input, #terminal div {

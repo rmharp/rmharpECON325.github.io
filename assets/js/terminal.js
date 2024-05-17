@@ -68,7 +68,7 @@
                   - riley.harper@unc.edu
                   - linkedin.com/in/rileymharper
                 </pre>`;
-                output.innerHTML += "<div>Summary info...</div>";
+                output.innerHTML += sumfetchOutput;
                 break;
             case 'repo':
                 output.innerHTML += "<div>Opening Github repository...</div>";

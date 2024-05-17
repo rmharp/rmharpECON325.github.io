@@ -294,70 +294,68 @@
                                 // Append a new div for the response
                                 const responseDisplay = document.createElement('div');
                                 terminalOutput.appendChild(responseDisplay);
-
-                                setTimeout(() => {
-                                    switch(command.toLowerCase()) {
-                                        case 'help':
-                                            const helpText = "<div>Type 'sumfetch' to display summary.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
-                                            typeEffect(responseDisplay, helpText, 25);
-                                            break;
-                                        case 'sumfetch':
-                                            const sumfetchOutput = `
-                                            <pre>
                                 
-                                                                                ██████                                             
-                                                                         ████████████████████                                      
-                                                                     █████████████████████████████                                 
-                                                                 ████████████████████████  █████████                               
-                                                               ████████████████████████████  ██████████                            
-                                                             ████████████████████████████████   █████████                          
-                                                            ██████████████████        ████████    █████████                        
-                                                          ████████████████████  ██████  ███████       ██████                       
-                                                         █████████████████████  ██████  ███████         █████                      
-                                                        ██████████████████████         █████████         █████                     
-                                                       ███████████████████████  ██████  ████████          █████                    
-                                                      ████████████████████████  ██████  ███████            █████                   
-                                                      █████████████████████████████████████████             █████                  
-                                                     █████████████████████████████████████████              █████                  
-                                                     ████████████████████████████████████████                ████                  
-                                                     █████████████████████████████████████                   █████                 
-                                                     ██████████████████████████████████                      █████                 
-                                                     ██████████████████████████                              █████                 
-                                                     ██████████████████████                                  █████                 
-                                                     ████████████████████                                    ████                  
-                                                     ███████████████████                                     ████                  
-                                                      █████████████████     █████    █████                  █████                  
-                                                      █████████████████      ████    █████                  ████                   
-                                                       ████████████████      ████    █████                 ████                    
-                                                        ███████████████      █████████████               █████                     
-                                                         ██████████████      █████████████              █████                      
-                                                          ██████████████     ████    █████             █████                       
-                                                            █████████████    ████    █████           ██████                        
-                                                             █████████████                         ██████                          
-                                                               █████████████                    ███████                            
-                                                                  ██████████████           ██████████                              
-                                                                     █████████████████████████████                                 
-                                                                         ████████████████████                                      
-                                                                                 ████                                              
-                                
-                                            Riley Harper
-                                            ----------------------------
-                                            > CONTACT
-                                              - riley.harper@unc.edu
-                                              - linkedin.com/in/rileymharper
-                                            </pre>`;
-                                            typeEffect(responseDisplay, sumfetchOutput, 25);
-                                            break;
-                                        case 'repo':
-                                            typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);
-                                            window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
-                                            break;
-                                        default:
-                                        typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
-                                }
-                                terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
-                            }, fullCommand.length * 50); // Delay response until command is typed
-                        }
+                                switch(command.toLowerCase()) {
+                                    case 'help':
+                                        const helpText = "<div>Type 'sumfetch' to display summary.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
+                                        typeEffect(responseDisplay, helpText, 25);
+                                        break;
+                                    case 'sumfetch':
+                                        const sumfetchOutput = `
+                                        <pre>
+                            
+                                                                            ██████                                             
+                                                                     ████████████████████                                      
+                                                                 █████████████████████████████                                 
+                                                             ████████████████████████  █████████                               
+                                                           ████████████████████████████  ██████████                            
+                                                         ████████████████████████████████   █████████                          
+                                                        ██████████████████        ████████    █████████                        
+                                                      ████████████████████  ██████  ███████       ██████                       
+                                                     █████████████████████  ██████  ███████         █████                      
+                                                    ██████████████████████         █████████         █████                     
+                                                   ███████████████████████  ██████  ████████          █████                    
+                                                  ████████████████████████  ██████  ███████            █████                   
+                                                  █████████████████████████████████████████             █████                  
+                                                 █████████████████████████████████████████              █████                  
+                                                 ████████████████████████████████████████                ████                  
+                                                 █████████████████████████████████████                   █████                 
+                                                 ██████████████████████████████████                      █████                 
+                                                 ██████████████████████████                              █████                 
+                                                 ██████████████████████                                  █████                 
+                                                 ████████████████████                                    ████                  
+                                                 ███████████████████                                     ████                  
+                                                  █████████████████     █████    █████                  █████                  
+                                                  █████████████████      ████    █████                  ████                   
+                                                   ████████████████      ████    █████                 ████                    
+                                                    ███████████████      █████████████               █████                     
+                                                     ██████████████      █████████████              █████                      
+                                                      ██████████████     ████    █████             █████                       
+                                                        █████████████    ████    █████           ██████                        
+                                                         █████████████                         ██████                          
+                                                           █████████████                    ███████                            
+                                                              ██████████████           ██████████                              
+                                                                 █████████████████████████████                                 
+                                                                     ████████████████████                                      
+                                                                             ████                                              
+                            
+                                        Riley Harper
+                                        ----------------------------
+                                        > CONTACT
+                                          - riley.harper@unc.edu
+                                          - linkedin.com/in/rileymharper
+                                        </pre>`;
+                                        typeEffect(responseDisplay, sumfetchOutput, 25);
+                                        break;
+                                    case 'repo':
+                                        typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);
+                                        window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
+                                        break;
+                                    default:
+                                    typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
+                            }
+                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
+                        }, fullCommand.length * 50); // Delay response until command is typed
                     })();
                     </script>
                 </section>

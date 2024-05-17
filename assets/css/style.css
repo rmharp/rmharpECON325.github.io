@@ -556,10 +556,6 @@ main {
     align-items: center; /* Aligns items vertically in line */
 }
 
-#terminal label {
-    margin-right: 5px;  /* Space between the label and the input */
-}
-
 #terminal input {
     flex-grow: 1;        /* Allows input to take up remaining space */
 }

@@ -254,7 +254,7 @@
                                 processCommand(command);
                             });
 
-                            function typeEffect(element, text, delay) {
+                            function typeEffect(element, html, delay) {
                                 let i = 0;
                                 element.innerHTML = html;  // Set the HTML content initially
                                 const text = element.textContent;  // Extract text content from HTML
@@ -262,11 +262,11 @@
                             
                                 const typing = setInterval(() => {
                                     if (i < text.length) {
-                                        element.textContent += text.charAt(i)(i);
+                                        element.textContent += text.charAt(i);
                                         i++;
                                     } else {
                                         clearInterval(typing);
-                                        element.innerHTML = html; // Restore original HTML after typing effect
+                                        element.innerHTML = html;  // Restore original HTML after typing effect
                                     }
                                 }, delay);
                             }

@@ -569,46 +569,20 @@ main {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 1px; /* Initial tiny width */
     height: 1px; /* Initial tiny height */
-    transition: transform 1s, width 1s, height 1s;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
 }
 
-/* Scale adjustments based on device width */
-@media (max-width: 599px) {
-    .iframe-container.iframe-grow {
-        transform: translate(-50%, -50%) scale(0.75); /* Scale down for mobile */
-    }
-
-    .iframe-container .close-button {
-        right: 1.5px;
-        top: 1.5px;
-        width: calc(2.3 * 40px); /* Smaller button size on mobile */
-        height: calc(0.8 * 40px);
-        padding: calc(40px / 5);
-        font-size: calc(40px / 3);
-        line-height: 50%;
-    }
-}
-
-@media (min-width: 600px) {
-    .iframe-container.iframe-grow {
-        transform: translate(-50%, -50%) scale(1); /* Full scale for desktop */
-    }
-
-    .iframe-container .close-button {
-        right: 1.5px;
-        top: 1.5px;
-        width: calc(2.3 * var(--close-button-size));
-        height: calc(0.8 * var(--close-button-size));
-        padding: calc(var(--close-button-size) / 5);
-        font-size: calc(var(--close-button-size) / 3);
-        line-height: 50%;
-    }
+.iframe-container.iframe-grow {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    --close-button-size: 50px;  /* Increased size when iframe grows */
 }
 
 .iframe-container iframe {
@@ -616,6 +590,38 @@ main {
     height: 100%;
     border: none;
     border-radius: 20px;
+}
+
+.iframe-container .close-button {
+    position: absolute;
+    top: 1.5px;
+    right: 1.5px;
+    background: #fff;
+    border: none;
+    padding: calc(var(--close-button-size) / 5);
+    font-size: calc(var(--close-button-size) / 3);
+    cursor: pointer;
+    z-index: 1001;
+    color: #000;
+    border-radius: 5px;
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
+    width: calc(2.3* var(--close-button-size));
+    height: calc(0.8* var(--close-button-size));
+    text-align: center;
+    line-height: 50%;
+}
+
+/* Media queries for scaling */
+@media (max-width: 599px) {
+    .iframe-container.iframe-grow {
+        transform: translate(-50%, -50%) scale(0.75); /* Scale down for mobile */
+    }
+}
+
+@media (min-width: 600px) {
+    .iframe-container.iframe-grow {
+        transform: translate(-50%, -50%) scale(1); /* Full scale for desktop */
+    }
 }
 
 #terminal {

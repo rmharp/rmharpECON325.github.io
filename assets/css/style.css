@@ -549,6 +549,22 @@ main {
 
 .about-text p { margin-bottom: 15px; }
 
+.responsive-iframe {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+}
+
+.responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Removes the default border */
+}
+
 #terminal {
     height: 384px; /* Assuming 16px line height x 24 lines */
     overflow-y: auto; /* Enables vertical scrolling within the terminal */

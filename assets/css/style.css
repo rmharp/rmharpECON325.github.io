@@ -563,6 +563,34 @@ main {
     border-radius: 20px;
 }
 
+.iframe-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 70%;
+    height: 70%;
+    background: black; /* Background color for the container */
+    border: 2px solid hsl(0, 0%, 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
+    z-index: 1000;
+}
+
+.iframe-container.iframe-grow {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    width: 100vw;
+    height: 100vh;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
 #terminal {
     height: 384px; /* Assuming 16px line height x 24 lines */
     overflow-y: auto; /* Enables vertical scrolling within the terminal */

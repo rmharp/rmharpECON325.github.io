@@ -303,6 +303,7 @@
                                                        "Type 'repo' or click <a href='https://github.com/rmharp/rmharp.github.io'>here</a> for the GitHub repository.<br/><br/>" +
                                                         "[cmd+k]: clear terminal.";
                                 terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
+                                delayedScroll();
                             });
 
                             document.addEventListener('keydown', function(event) {
@@ -348,9 +349,7 @@
                                     } else {
                                         clearInterval(typing);
                                         element.innerHTML = html;  // Restore original HTML after typing effect
-                                        if (!userScrolledUp) {
-                                            terminalOutput.scrollTop = terminalOutput.scrollHeight;
-                                        }
+                                        delayedScroll();
                                     }
                                 }, delay);
                             }
@@ -474,11 +473,17 @@ Riley Harper
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
                             }
-                            if (!userScrolledUp) {
-                                        terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom if the user hasn't scrolled up
+                                delayedScroll();  // Ensure the terminal scrolls after processing a command
                             }
-                        }
-                    })();
+                        
+                            function delayedScroll() {
+                                setTimeout(() => {
+                                    if (!userScrolledUp) {
+                                        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                                    }
+                                }, 100);
+                            }
+                        })();
                     </script>
                 </section>
 

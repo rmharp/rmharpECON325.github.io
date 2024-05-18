@@ -612,9 +612,12 @@ main {
 }
 
 /* Media queries for scaling */
-@media (max-width: 599px) {
+@media (max-width: 599px) {'
+    .iframe-container .close-button::after {
+        content: "X";
+    }
     .iframe-container.iframe-grow {
-        transform: translate(-60%, -61%) scale(0.78); /* Scale down for mobile */
+        transform: translate(-61%, -61%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
 	width: 127%;

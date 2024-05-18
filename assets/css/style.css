@@ -614,7 +614,7 @@ main {
 /* Media queries for scaling */
 @media (max-width: 599px) {
     .iframe-container.iframe-grow {
-        transform: translate(-58%, -56%) scale(0.78); /* Scale down for mobile */
+        transform: translate(-60%, -60%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
 	width: 125%;

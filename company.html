@@ -182,7 +182,7 @@
                 <ul class="navbar-list">
 
                     <li class="navbar-item">
-                        <a href="#" class="navbar-link active">About</a>
+                        <a href="index.html" class="navbar-link active">About</a>
                     </li>
 
                     <li class="navbar-item">
@@ -190,7 +190,7 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a href="company.html" class="navbar-link">Company</a>
+                        <a href="#" class="navbar-link">Company</a>
                     </li>
 
                     <li class="navbar-item">
@@ -200,3 +200,269 @@
                 </ul>
 
             </nav>
+
+
+            <!--
+              - #ABOUT
+            -->
+
+            <article class="about  active" data-page="about">
+
+                <header>
+                    <h2 class="h2 article-title">About me</h2>
+                </header>
+
+                <section class="about-text">
+                    <p>
+                        I am an advocate for expanding access to learning resources and addressing substance use disorder, and my journey at UNC-Chapel Hill has been driven by a commitment to making a tangible impact. With a foundation in Statistics and Analytics & Computer Science, I seek to leverage my academic background to explore innovative solutions in these areas and more.
+                    </p>
+                    <p>
+                        My involvement in AI@UNC, where I serve as the Technical Chair, reflects my dedication to fostering a community of learners and innovators. In this role, I have led several initiatives such as NeuroSpark that aim not only to advance artificial intelligence research but also to ensure knowledge is accessible to all by open sourcing my work.
+                    </p>
+                    <p>
+                        I have also actively contributed to research that seeks to understand and address mental health and substance use disorders. Presenting my research internationally at Oxford University was a pivotal moment in my own life, which allowed me to share insights from my research on mental health and to advocate for novel approaches to treatment and management of mental health resources.
+                    </p>
+                    <p>
+                        At the BRANE Lab, my research has focused on the machine learning methods behind neurobiological and behavioral determinants of substance use treatment response, as measured by EEG. This research experience has reinforced my commitment to integrating scientific research with practical solutions to improve clinical outcomes.
+                    </p>
+                    <p>
+                        In every endeavor, whether leading AI@UNC, Chapel Thrill Escapes, or conducting research, my goal remains the same; to create opportunities for learning, inspire change, and contribute to a healthier, more informed community. My journey is driven by a belief that through collaboration, innovation, and a shared commitment to progress, we can address our most pressing challenges.
+                    </p>
+
+                    <div id="terminal" style="margin-bottom: 5px;">
+                        <div id="output"></div>
+                        <form id="terminal-form">
+                            <label for="input">visitor@liveterm:$ ~ </label>
+                            <input type="text" id="input" autofocus autocomplete="off"/>
+                        </form>
+                    </div>
+                
+                    <script>
+                        'use strict';
+
+                        // element toggle function
+                        const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+                
+                        // sidebar variables
+                        const sidebar = document.querySelector("[data-sidebar]");
+                        const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+                
+                        // sidebar toggle functionality for mobile
+                        sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+                
+                        // contact form variables
+                        const form = document.querySelector("[data-form]");
+                        const formInputs = document.querySelectorAll("[data-form-input]");
+                        const formBtn = document.querySelector("[data-form-btn]");
+                
+                        // add event to all form input field
+                        for (let i = 0; i < formInputs.length; i++) {
+                            formInputs[i].addEventListener("input", function () {
+                                // check form validation
+                                if (form.checkValidity()) {
+                                    formBtn.removeAttribute("disabled");
+                                } else {
+                                    formBtn.setAttribute("disabled", "");
+                                }
+                            });
+                        }
+                
+                        // page navigation variables
+                        const navigationLinks = document.querySelectorAll("[data-nav-link]");
+                        const pages = document.querySelectorAll("[data-page]");
+                
+                        // add event to all nav link
+                        for (let i = 0; i < navigationLinks.length; i++) {
+                            navigationLinks[i].addEventListener("click", function () {
+                                for (let i = 0; i < pages.length; i++) {
+                                    if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+                                        pages[i].classList.add("active");
+                                        navigationLinks[i].classList.add("active");
+                                        window.scrollTo(0, 0);
+                                    } else {
+                                        pages[i].classList.remove("active");
+                                        navigationLinks[i].classList.remove("active");
+                                    }
+                                }
+                            });
+                        }
+                        
+                        (function() {
+                            'use strict';
+                            
+                            const terminalForm = document.getElementById('terminal-form');
+                            const terminalInput = document.getElementById('input');
+                            const terminalOutput = document.getElementById('output');
+
+                            let userScrolledUp = false;
+                
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
+                                                       "Type 'logofetch' to display logo.<br/>" +
+                                                       "Type 'repo' or click <a href='https://github.com/rmharp/rmharp.github.io'>here</a> for the GitHub repository.<br/><br/>" +
+                                                        "[cmd+k]: clear terminal.";
+                                terminalOutput.innerHTML += `<div>${initialMessage}</div>`;
+                            });
+
+                            document.addEventListener('keydown', function(event) {
+                                // Check for 'K' key and either Cmd (metaKey) or Ctrl key
+                                if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
+                                    event.preventDefault();  // Prevent default behavior associated with Ctrl + K or Cmd + K
+                                    const terminalOutput = document.getElementById('output');
+                                    terminalOutput.innerHTML = '';  // Clear the terminal output
+                                    // You might want to reset any other state or variables associated with the output here
+                                }
+                            });
+                
+                            terminalForm.addEventListener('submit', function(event) {
+                                event.preventDefault();  // Prevent form from submitting traditionally
+                                const command = terminalInput.value.trim();
+                                terminalInput.value = '';  // Clear the input after getting the command
+                                processCommand(command);
+                            });
+
+                            terminalOutput.addEventListener('scroll', function() {
+                                // Check if user scrolled up
+                                userScrolledUp = terminalOutput.scrollTop + terminalOutput.clientHeight < terminalOutput.scrollHeight;
+                            });
+
+                            function stripHtml(html) {
+                                const doc = new DOMParser().parseFromString(html, 'text/html');
+                                return doc.body.textContent || "";
+                            }
+                            
+                            function typeEffect(element, html, delay) {
+                                let i = 0;
+                                const text = stripHtml(html);  // Extract text content from HTML string
+                                element.textContent = '';  // Clear the element for typing effect
+                            
+                                const typing = setInterval(() => {
+                                    if (i < text.length) {
+                                        element.textContent += text.charAt(i);
+                                        i++;
+                                        if (!userScrolledUp) {
+                                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output if the user hasn't scrolled up
+                                        }
+                                    } else {
+                                        clearInterval(typing);
+                                        element.innerHTML = html;  // Restore original HTML after typing effect
+                                        if (!userScrolledUp) {
+                                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Ensure scrolling to the bottom after typing effect completes
+                                        }
+                                    }
+                                }, delay);
+                            }
+                            
+                            function processCommand(command) {
+                                const fullCommand = `visitor@liveterm:$ ~ ${command}`;
+
+                                // Append the command to the terminal output
+                                terminalOutput.innerHTML += `<div>${fullCommand}</div>`;
+                            
+                                // Append a new div for the response
+                                const responseDisplay = document.createElement('div');
+                                terminalOutput.appendChild(responseDisplay);
+                                
+                                switch(command.toLowerCase()) {
+                                    case 'help':
+                                        const helpText = "<div>Type 'logofetch' to display logo.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
+                                        typeEffect(responseDisplay, helpText, 25);
+                                        break;
+                                    case 'logofetch':
+                                        const logofetchOutput = `
+<pre class="reduced-line-spacing">
+                            ██████                                             
+                     ████████████████████                                      
+                 █████████████████████████████                                 
+             ████████████████████████  █████████                               
+           ████████████████████████████  ██████████                            
+         ████████████████████████████████   █████████                          
+        ██████████████████        ████████    █████████                        
+      ████████████████████  ██████  ███████       ██████                       
+     █████████████████████  ██████  ███████         █████                      
+    ██████████████████████         █████████         █████                     
+   ███████████████████████  ██████  ████████          █████                    
+  ████████████████████████  ██████  ███████            █████                   
+  █████████████████████████████████████████             █████                  
+ █████████████████████████████████████████              █████                  
+ ████████████████████████████████████████                ████                  
+ █████████████████████████████████████                   █████                 
+ ██████████████████████████████████                      █████                 
+ ██████████████████████████                              █████                 
+ ██████████████████████                                  █████                 
+ ████████████████████                                    ████                  
+ ███████████████████                                     ████                  
+  █████████████████     █████    █████                  █████                  
+  █████████████████      ████    █████                  ████                   
+   ████████████████      ████    █████                 ████                    
+    ███████████████      █████████████               █████                     
+     ██████████████      █████████████              █████                      
+      ██████████████     ████    █████             █████                       
+        █████████████    ████    █████           ██████                        
+         █████████████                         ██████                          
+           █████████████                    ███████                            
+              ██████████████           ██████████                              
+                 █████████████████████████████                                 
+                     ████████████████████                                      
+                         ████                                              
+                            
+Riley Harper
+----------------------------
+- riley.harper@unc.edu
+- linkedin.com/in/rileymharper
+</pre>`;
+                                        typeEffect(responseDisplay, logofetchOutput, 0);
+                                        break;
+                                    case 'repo':
+                                        typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);
+                                        window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
+                                        break;
+                                    case 'origin story':
+                                        const videoContainer = document.createElement('div');
+                                        videoContainer.classList.add('video-container');
+                                        videoContainer.innerHTML = `
+                                            <video controls>
+                                                <source src="assets/videos/video1.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        `;
+                                        document.body.appendChild(videoContainer);
+                        
+                                        const videoElement = videoContainer.querySelector('video');
+                                        videoElement.addEventListener('loadedmetadata', function() {
+                                            videoContainer.classList.add('video-grow');
+                                        });
+                        
+                                        videoElement.addEventListener('ended', function() {
+                                            videoContainer.classList.remove('video-grow');
+                                            videoContainer.addEventListener('transitionend', function() {
+                                                videoContainer.remove();
+                                            });
+                                        });
+                        
+                                        videoElement.play();
+                                        break;
+                                    default:
+                                        typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
+                            }
+                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
+                        }
+                    })();
+                    </script>
+                </section>
+
+            </article>
+            
+        </div>
+
+    </main>
+
+    <!--
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+</body>
+
+</html>

@@ -320,7 +320,7 @@ main {
 }
 
 .video-container {
-    position: fixed;
+    position: ;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
@@ -498,7 +498,7 @@ main {
 \*-----------------------------------*/
 
 .navbar {
-  position: fixed;
+  position: ;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -591,7 +591,7 @@ main {
 }
 
 .iframe-container .close-button {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     background: #fff;

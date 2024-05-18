@@ -448,7 +448,9 @@ Riley Harper
                                         iframeContainer.classList.add('iframe-container');
                                         iframeContainer.innerHTML = `
                                             <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FTB09HRitplIjq4UDJvNIXb%2FECON-325-App%3Fnode-id%3D1-401%26t%3DRdHryPupShzAVsRX-1%26scaling%3Dmin-zoom%26page-id%3D0%253A1" allowfullscreen></iframe>
-                                            <button class="close-button">Close</button>
+                                            <div class="button-container">
+                                                <button class="close-button">Close</button>
+                                            </div>
                                         `;
                                         document.body.appendChild(iframeContainer);
                                         
@@ -462,7 +464,7 @@ Riley Harper
                                         iframeContainer.querySelector('iframe').addEventListener('load', function() {
                                             setTimeout(() => {
                                                 iframeContainer.classList.add('iframe-grow');
-                                            }, 4000); // Delay to allow iframe to load before transitioning
+                                            }, 5000); // Delay to allow iframe to load before transitioning
                                         });
                                         
                                         iframeContainer.style.display = 'block'; // Ensure the iframe is initially visible but small

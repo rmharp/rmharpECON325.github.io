@@ -311,7 +311,7 @@
                                     event.preventDefault();  // Prevent default behavior associated with Ctrl + K or Cmd + K
                                     const terminalOutput = document.getElementById('output');
                                     terminalOutput.innerHTML = '';  // Clear the terminal output
-                                    // You might want to reset any other state or variables associated with the output here
+                                    userScrolledUp = false;  // Reset scroll detection when clearing the terminal
                                 }
                             });
                 
@@ -323,8 +323,9 @@
                             });
 
                             terminalOutput.addEventListener('scroll', function() {
-                                // Check if user scrolled up
-                                userScrolledUp = terminalOutput.scrollTop + terminalOutput.clientHeight < terminalOutput.scrollHeight;
+                                // Update the userScrolledUp flag based on scroll position
+                                const isAtBottom = terminalOutput.scrollHeight - terminalOutput.scrollTop === terminalOutput.clientHeight;
+                                userScrolledUp = !isAtBottom;
                             });
 
                             function stripHtml(html) {
@@ -348,7 +349,7 @@
                                         clearInterval(typing);
                                         element.innerHTML = html;  // Restore original HTML after typing effect
                                         if (!userScrolledUp) {
-                                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Ensure scrolling to the bottom after typing effect completes
+                                            terminalOutput.scrollTop = terminalOutput.scrollHeight;
                                         }
                                     }
                                 }, delay);
@@ -473,7 +474,9 @@ Riley Harper
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
                             }
-                            terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom of the output
+                            if (!userScrolledUp) {
+                                        terminalOutput.scrollTop = terminalOutput.scrollHeight;  // Auto-scroll to the bottom if the user hasn't scrolled up
+                            }
                         }
                     })();
                     </script>

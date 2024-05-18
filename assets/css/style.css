@@ -567,13 +567,12 @@ main {
 .iframe-container {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden; /* Hide any overflow */
+    top: 50%;
+    left: 50%;
+    width: 1px; /* Initial tiny width */
+    height: 1px; /* Initial tiny height */
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
@@ -581,50 +580,48 @@ main {
 
 .iframe-container.iframe-grow {
     display: block;
-    transform: translate(-50%, -50%) translateZ(0); /* Center the iframe container */
+    width: 100vw;
+    height: 100vh;
+    --close-button-size: 50px;  /* Increased size when iframe grows */
 }
 
 .iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 133.33%; /* Adjusted width to fill the scaled-down area */
-    height: 133.33%; /* Adjusted height to fill the scaled-down area */
-    transform-origin: top left; /* Scale from top left corner */
+    width: 100%;
+    height: 100%;
     border: none;
     border-radius: 20px;
-    transition: transform 1s ease-in-out; /* Smooth transition for scaling */
 }
 
-/* Adjustments for close button, ensuring it's correctly positioned and styled */
 .iframe-container .close-button {
     position: absolute;
+    top: 1.5px;
+    right: 1.5px;
     background: #fff;
     border: none;
-    padding: calc(var(--close-button-size) / 5);  /* Size based on the --close-button-size variable */
+    padding: calc(var(--close-button-size) / 5);
     font-size: calc(var(--close-button-size) / 3);
     cursor: pointer;
     z-index: 1001;
     color: #000;
     border-radius: 5px;
-    transition: top 1s ease-in-out, right 1s ease-in-out; /* Smooth transitions for positioning */
-    width: calc(2.3 * var(--close-button-size)); /* Dynamic width based on --close-button-size */
-    height: calc(0.8 * var(--close-button-size)); /* Dynamic height based on --close-button-size */
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
+    width: calc(2.3* var(--close-button-size));
+    height: calc(0.8* var(--close-button-size));
     text-align: center;
-    line-height: 50%; /* Adjust line-height for vertical alignment */
+    line-height: 50%;
 }
 
-/* Media queries for device-specific adjustments */
+/* Mobile-specific adjustments for iframe and close button */
 @media (max-width: 599px) {
     .iframe-container iframe {
-        transform: scale(0.75); /* Scale down iframe contents to simulate 75% zoom on mobile */
+        transform: scale(0.85); /* Scale down iframe contents on mobile */
     }
 
     .iframe-container .close-button {
-        top: 10px; /* Ensure close button is visible and not off-screen */
-        right: 10px;
+        top: 10px;  /* Adjusted to ensure visibility */
+        right: 10px; /* Adjusted to ensure it's not off screen */
         padding: 8px 16px; /* Smaller padding on mobile */
-        font-size: 14px; /* Smaller font size on mobile */
+        font-size: 14px; /* Slightly smaller font size on mobile */
     }
 }
 

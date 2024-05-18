@@ -621,8 +621,8 @@ main {
     	height: 136%;
     }
     .iframe-container .close-button {
-        top: 50px;  
-        right: 10px;
+        top: 16vh;  
+        right: 30vw;
     }
 }
 

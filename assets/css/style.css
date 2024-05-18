@@ -614,11 +614,11 @@ main {
 /* Media queries for scaling */
 @media (max-width: 599px) {
     .iframe-container.iframe-grow {
-        transform: translate(-58%, -55%) scale(0.8); /* Scale down for mobile */
+        transform: translate(-60%, -56%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
-	width: 125%;
-    	height: 125%;
+	width: 120%;
+    	height: 124%;
     }
 }
 

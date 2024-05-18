@@ -573,7 +573,7 @@ main {
     padding: 5px;
     font-family: monospace;
     border-radius: 20px;
-    border: 2.5px solid var(--white-2); /* Optional, for better visibility */
+    border: 2.5px solid var(--white-2);
 }
 
 #terminal a, #terminal a:visited {

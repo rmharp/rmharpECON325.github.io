@@ -294,6 +294,7 @@
                             const terminalForm = document.getElementById('terminal-form');
                             const terminalInput = document.getElementById('input');
                             const terminalOutput = document.getElementById('output');
+                            const terminal = document.getElementById('terminal');
 
                             let userScrolledUp = false;
                 
@@ -323,11 +324,21 @@
                                 processCommand(command);
                             });
 
-                            // Listen to scroll events to update `userScrolledUp`
-                            terminalOutput.addEventListener('scroll', function() {
-                                const isAtBottom = (terminalOutput.scrollHeight - terminalOutput.scrollTop) === terminalOutput.clientHeight;
+                            // Add event listener for scroll events on the terminal
+                            terminal.addEventListener('scroll', () => {
+                                // Calculate if the terminal is scrolled to the bottom
+                                const isAtBottom = terminal.scrollHeight - terminal.scrollTop === terminal.clientHeight;
+                            
+                                // Update userScrolledUp based on whether the terminal is at the bottom or not
                                 userScrolledUp = !isAtBottom;
                             });
+
+                            function scrollToEnd() {
+                                // Only scroll to the bottom if the user hasn't scrolled up
+                                if (!userScrolledUp) {
+                                    terminal.scrollTop = terminal.scrollHeight;
+                                }
+                            }
 
                             function stripHtml(html) {
                                 const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -474,12 +485,6 @@ Riley Harper
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
                             }
                                 scrollToEnd();  // Ensure the terminal scrolls after processing a command
-                            }
-                        
-                            // Scroll to the end of the terminal output
-                            function scrollToEnd() {
-                                const terminal = document.getElementById('terminal');
-                                terminal.scrollTop = terminal.scrollHeight;
                             }
                         })();
                     </script>

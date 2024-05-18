@@ -617,8 +617,8 @@ main {
         transform: translate(-58%, -56%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
-	width: 122%;
-    	height: 126%;
+	width: 125%;
+    	height: 130%;
     }
 }
 

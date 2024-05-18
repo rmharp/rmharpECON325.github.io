@@ -366,7 +366,8 @@
                                 
                                 switch(command.toLowerCase()) {
                                     case 'help':
-                                        const helpText = "<div>Type 'logofetch' to display logo.<br>Type 'repo' or click <a href='https://github.com'>here</a> for the GitHub repository.</div>";
+                                        const helpText = "<div>Here are all the available commands,<br/>" +
+                                            "help logofetch repo originstory thrillingapp</div>";
                                         typeEffect(responseDisplay, helpText, 25);
                                         break;
                                     case 'logofetch':
@@ -418,7 +419,7 @@ Riley Harper
                                         typeEffect(responseDisplay, "<div>Opening GitHub repository...</div>", 0);
                                         window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
                                         break;
-                                    case 'origin story':
+                                    case 'originstory':
                                         const videoContainer = document.createElement('div');
                                         videoContainer.classList.add('video-container');
                                         videoContainer.innerHTML = `

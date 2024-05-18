@@ -476,8 +476,11 @@ Riley Harper
                         
                             // Scroll to the end of the terminal output
                             function scrollToEnd() {
-                                const terminalOutput = document.getElementById('output');
-                                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                                requestAnimationFrame(() => {
+                                    const terminalOutput = document.getElementById('output');
+                                    console.log("Scrolling to:", terminalOutput.scrollHeight);
+                                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                                });
                             }
                         })();
                     </script>

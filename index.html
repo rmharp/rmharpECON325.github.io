@@ -323,9 +323,9 @@
                                 processCommand(command);
                             });
 
+                            // Listen to scroll events to update `userScrolledUp`
                             terminalOutput.addEventListener('scroll', function() {
-                                // Update the userScrolledUp flag based on scroll position
-                                const isAtBottom = terminalOutput.scrollHeight - terminalOutput.scrollTop === terminalOutput.clientHeight;
+                                const isAtBottom = (terminalOutput.scrollHeight - terminalOutput.scrollTop) === terminalOutput.clientHeight;
                                 userScrolledUp = !isAtBottom;
                             });
 
@@ -476,11 +476,11 @@ Riley Harper
                         
                             // Scroll to the end of the terminal output
                             function scrollToEnd() {
-                                requestAnimationFrame(() => {
-                                    const terminalOutput = document.getElementById('output');
+                                const terminalOutput = document.getElementById('output');
+                                // Only scroll to bottom if user has not scrolled up
+                                if (!userScrolledUp) {
                                     terminalOutput.scrollTop = terminalOutput.scrollHeight;
-                                    console.log("Actual scrollTop:", terminalOutput.scrollTop);
-                                });
+                                }
                             }
                         })();
                     </script>

@@ -459,10 +459,13 @@ Riley Harper
                                             });
                                         });
                         
-                                        setTimeout(() => {
-                                            iframeContainer.classList.add('iframe-grow');
-                                        }, 100); // Delay to allow for DOM attachment
+                                        iframeContainer.querySelector('iframe').addEventListener('load', function() {
+                                            setTimeout(() => {
+                                                iframeContainer.classList.add('iframe-grow');
+                                            }, 5000); // Delay to allow iframe to load before transitioning
+                                        });
                                         
+                                        iframeContainer.style.display = 'block'; // Ensure the iframe is initially visible but small
                                         break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);

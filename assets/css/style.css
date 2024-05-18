@@ -96,6 +96,7 @@
   --fs-6: 14px;
   --fs-7: 13px;
   --fs-8: 11px;
+  --close-button-size: 30px; 
 
   /* font-weight */
   --fw-300: 300;
@@ -604,8 +605,8 @@ main {
     color: #000;
     border-radius: 5px;
     transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
-    width: 30px;
-    height: 30px;
+    width: var(--close-button-size);
+    height: var(--close-button-size);
 }
 
 #terminal {

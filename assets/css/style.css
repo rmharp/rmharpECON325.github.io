@@ -569,9 +569,6 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    width: 70%;
-    height: 70%;
-    border: none;
     transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
     z-index: 1000;
 }

@@ -637,7 +637,7 @@ main {
 
 #terminal {
     height: 384px; /* Assuming 16px line height x 24 lines */
-    overflow-y: hidden; /* Enables vertical scrolling within the terminal */
+    overflow-y: auto; /* Enables vertical scrolling within the terminal */
     width: 100%; /* Adjust width as necessary */
     background-color: black;
     color: var(--white-2);
@@ -673,10 +673,6 @@ main {
 
 #terminal input {
     flex-grow: 1;        /* Allows input to take up remaining space */
-}
-
-#output {
-    overflow-y: auto;  /* Enables internal scrolling */
 }
 
 .reduced-line-spacing {

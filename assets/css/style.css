@@ -615,11 +615,11 @@ main {
 @media (max-width: 599px) {'
     .iframe-container .close-button {
         padding: calc(var(--close-button-size) / 2);
-	    top: 20px;
-	right: -20px;
+	top: 40px;
+	right: -40px;
     }
     .iframe-container.iframe-grow {
-        transform: translate(-62%, -58%) scale(0.78); /* Scale down for mobile */
+        transform: translate(-62%, -59%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
 	width: 129%;

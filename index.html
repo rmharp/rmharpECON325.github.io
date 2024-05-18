@@ -354,14 +354,13 @@
                             
                             function processCommand(command) {
                                 const fullCommand = `visitor@liveterm:$ ~ ${command}`;
-                                const newOutput = document.createElement('div');
-                                newOutput.innerHTML = `<div>${fullCommand}</div>`;
-                            
-                                const form = document.getElementById('terminal-form');
-                                terminalOutput.insertBefore(newOutput, form);
-                            
+
+                                // Append the command to the terminal output
+                                terminalOutput.innerHTML += `<div>${fullCommand}</div>`;
+
+                                // Append a new div for the response
                                 const responseDisplay = document.createElement('div');
-                                terminalOutput.insertBefore(responseDisplay, form);
+                                terminalOutput.appendChild(responseDisplay);
                                 
                                 switch(command.toLowerCase()) {
                                     case 'help':

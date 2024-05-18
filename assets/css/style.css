@@ -573,7 +573,8 @@ main {
     transform: translate(-50%, -50%) scale(1);
     transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8); /* Optional: Add a background to highlight the iframe */
+    border-radius: 20px;
 }
 
 .iframe-container.iframe-grow {
@@ -601,6 +602,7 @@ main {
     z-index: 1001;
     color: #000;
     border-radius: 5px;
+    transition: transform 1s ease-in-out;
 }
 
 #terminal {

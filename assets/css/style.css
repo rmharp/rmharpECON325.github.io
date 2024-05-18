@@ -617,10 +617,10 @@ main {
         content: "X";
     }
     .iframe-container.iframe-grow {
-        transform: translate(-61%, -61%) scale(0.78); /* Scale down for mobile */
+        transform: translate(-62%, -61%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
-	width: 127%;
+	width: 128%;
     	height: 130%;
     }
 }

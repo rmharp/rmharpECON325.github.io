@@ -676,12 +676,9 @@ main {
 }
 
 #output {
-    height: 100%; /* Use 100% to fill the container */
-    overflow-y: auto;
-    background-color: #333;
-    color: #fff;
+    height: 100%;  /* Fills the parent container, respects the 384px height set */
+    overflow-y: auto;  /* Enables internal scrolling */
     padding: 10px;
-    box-shadow: 0 0 10px #000;
 }
 
 .reduced-line-spacing {

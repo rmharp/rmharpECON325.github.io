@@ -550,23 +550,17 @@ main {
 .about-text p { margin-bottom: 15px; }
 
 .responsive-iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    position: relative;
-    border-radius: 20px;
-    border: 2.5px solid var(--white-2);
-    overflow: hidden; /* Ensures that the iframe contents respect the border radius */
 }
 
 .responsive-iframe iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none; /* Removes the default border */
-    border-radius: 20px; /* Ensures iframe contents respect the border radius */
+    width: 70%;
+    height: 1000px;
+    border: 2px solid hsl(0, 0%, 100%);
+    border-radius: 20px;
 }
 
 #terminal {

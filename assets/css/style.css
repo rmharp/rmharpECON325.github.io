@@ -614,8 +614,8 @@ main {
 /* Media queries for scaling */
 @media (max-width: 599px) {'
     .iframe-container .close-button {
-        top: calc(100% - 50px);  // Position it 50px from the bottom of the container
-        right: 10px;  // Position it 10px from the right of the container
+        top: 50px;  
+        right: 10px;
         padding: calc(var(--close-button-size) / 2);
     }
     .iframe-container.iframe-grow {

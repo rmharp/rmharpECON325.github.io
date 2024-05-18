@@ -615,8 +615,7 @@ main {
 @media (max-width: 599px) {'
     .iframe-container .close-button {
         padding: calc(var(--close-button-size) / 2);
-	top: 80px;
-	right: -80px;
+	transform: translate(5%, 20%)
     }
     .iframe-container.iframe-grow {
         transform: translate(-62%, -62%) scale(0.78); /* Scale down for mobile */

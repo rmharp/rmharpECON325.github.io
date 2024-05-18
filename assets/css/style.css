@@ -613,15 +613,15 @@ main {
 
 /* Media queries for scaling */
 @media (max-width: 599px) {'
-    .iframe-container .close-button::after {
-        content: "X";
+    .iframe-container .close-button {
+        padding: calc(var(--close-button-size) / 2);
     }
     .iframe-container.iframe-grow {
-        transform: translate(-62%, -61%) scale(0.78); /* Scale down for mobile */
+        transform: translate(-62%, -60%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
-	width: 130%;
-    	height: 130%;
+	width: 129%;
+    	height: 129%;
     }
 }
 

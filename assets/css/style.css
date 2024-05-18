@@ -315,7 +315,7 @@ article.active {
 \*-----------------------------------*/
 
 main {
-  margin: 15px 12px;
+  margin: 15px 1;
   margin-bottom: 75px;
   min-width: 259px;
 }
@@ -594,8 +594,8 @@ main {
 
 .iframe-container .close-button {
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 1.5px;
+    right: 1.5px;
     background: #fff;
     border: none;
     padding: calc(var(--close-button-size) / 5);

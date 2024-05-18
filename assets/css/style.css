@@ -557,7 +557,7 @@ main {
 }
 
 .responsive-iframe iframe {
-    width: 70%;
+    width: 450px;
     height: 1000px;
     border: 2px solid hsl(0, 0%, 100%);
     border-radius: 20px;

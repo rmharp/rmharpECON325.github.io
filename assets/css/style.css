@@ -619,11 +619,11 @@ main {
 	right: -80px;
     }
     .iframe-container.iframe-grow {
-        transform: translate(-62%, -60%) scale(0.78); /* Scale down for mobile */
+        transform: translate(-62%, -63%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
 	width: 129%;
-    	height: 134%;
+    	height: 136%;
     }
 }
 

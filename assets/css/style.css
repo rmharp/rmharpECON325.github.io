@@ -594,19 +594,21 @@ main {
 
 .iframe-container .close-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 2px;
+    right: 2px;
     background: #fff;
     border: none;
     padding: calc(var(--close-button-size) / 5);
-    font-size: calc(var(--close-button-size) / 6);  /* Adjust font size relative to button size */
+    font-size: calc(var(--close-button-size) / 3);
     cursor: pointer;
     z-index: 1001;
     color: #000;
     border-radius: 5px;
     transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
-    width: var(--close-button-size);
-    height: var(--close-button-size);
+    width: calc(2.3* var(--close-button-size));
+    height: calc(0.8* var(--close-button-size));
+    text-align: center;
+    line-height: 50%;
 }
 
 #terminal {

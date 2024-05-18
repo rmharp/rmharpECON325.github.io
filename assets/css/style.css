@@ -599,7 +599,7 @@ main {
     background: #fff;
     border: none;
     padding: calc(var(--close-button-size) / 5);
-    font-size: calc(var(--close-button-size) / 3);  /* Adjust font size relative to button size */
+    font-size: calc(var(--close-button-size) / 6);  /* Adjust font size relative to button size */
     cursor: pointer;
     z-index: 1001;
     color: #000;

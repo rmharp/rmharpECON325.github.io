@@ -578,10 +578,18 @@ main {
     border-radius: 20px;
 }
 
-.iframe-container.iframe-grow {
-    display: block;
-    width: 100vw;
-    height: 100vh;
+/* Mobile-specific adjustments */
+@media (max-width: 599px) {
+    .iframe-container.iframe-grow {
+        transform: translate(-50%, -50%) scale(0.75); /* Scale down for mobile */
+    }
+}
+
+/* Desktop-specific adjustments */
+@media (min-width: 600px) {
+    .iframe-container.iframe-grow {
+        transform: translate(-50%, -50%) scale(1); /* Full scale for desktop */
+    }
 }
 
 .iframe-container iframe {

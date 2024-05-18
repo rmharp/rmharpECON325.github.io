@@ -613,17 +613,16 @@ main {
 
 /* Media queries for scaling */
 @media (max-width: 599px) {'
-    .iframe-container .close-button {
-        top: 50px;  
-        right: 10px;
-        padding: calc(var(--close-button-size) / 2);
-    }
     .iframe-container.iframe-grow {
         transform: translate(-62%, -62%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
 	width: 129%;
     	height: 136%;
+    }
+    .iframe-container .close-button {
+        top: 50px;  
+        right: 10px;
     }
 }
 

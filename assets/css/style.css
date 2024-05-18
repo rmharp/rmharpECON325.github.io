@@ -614,6 +614,8 @@ main {
 /* Mobile-specific adjustments for iframe and close button */
 @media (max-width: 599px) {
     .iframe-container iframe {
+	width: 133%;
+    	height: 133%;
         transform: scale(0.85); /* Scale down iframe contents on mobile */
     }
 

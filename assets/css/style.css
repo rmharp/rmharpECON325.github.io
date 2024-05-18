@@ -611,10 +611,10 @@ main {
     line-height: 50%;
 }
 
-/* Media queries for scaling */
+/* Mobile-specific adjustments */
 @media (max-width: 599px) {
-    .iframe-container.iframe-grow {
-        transform: translate(-50%, -50%) scale(0.75); /* Scale down for mobile */
+    .iframe-container iframe {
+        transform: scale(0.75); /* Scale down iframe contents on mobile */
     }
 }
 

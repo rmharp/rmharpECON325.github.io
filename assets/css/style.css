@@ -615,14 +615,15 @@ main {
 @media (max-width: 599px) {'
     .iframe-container .close-button {
         padding: calc(var(--close-button-size) / 2);
-	right: -5px;
+	    top: 20px;
+	right: -20px;
     }
     .iframe-container.iframe-grow {
-        transform: translate(-62%, -60%) scale(0.78); /* Scale down for mobile */
+        transform: translate(-62%, -58%) scale(0.78); /* Scale down for mobile */
     }
     .iframe-container iframe {
 	width: 129%;
-    	height: 129%;
+    	height: 132%;
     }
 }
 

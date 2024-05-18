@@ -567,14 +567,12 @@ main {
 .iframe-container {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translate(-50%, -50%);
-    width: 100vw;  /* Ensure full viewport width */
-    height: 100vh;  /* Ensure full viewport height */
-    transition: transform 1s ease-in-out;
+    top: 50%;
+    left: 50%;
+    width: 1px; /* Initial tiny width */
+    height: 1px; /* Initial tiny height */
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
@@ -582,7 +580,9 @@ main {
 
 .iframe-container.iframe-grow {
     display: block;
-    transform: translate(-50%, -50%) scale(1); /* Normal scale for desktop */
+    width: 100vw;
+    height: 100vh;
+    --close-button-size: 50px;  /* Increased size when iframe grows */
 }
 
 .iframe-container iframe {
@@ -590,15 +590,6 @@ main {
     height: 100%;
     border: none;
     border-radius: 20px;
-    transform: scale(1); /* Default scale is 1 */
-    transition: transform 1s ease-in-out; /* Smooth transition for scaling */
-}
-
-/* Mobile-specific adjustments */
-@media (max-width: 599px) {
-    .iframe-container iframe {
-        transform: translate(-50%, -50%) scale(0.75); /* Scale down iframe contents on mobile */
-    }
 }
 
 .iframe-container .close-button {
@@ -618,6 +609,19 @@ main {
     height: calc(0.8* var(--close-button-size));
     text-align: center;
     line-height: 50%;
+}
+
+/* Media queries for scaling */
+@media (max-width: 599px) {
+    .iframe-container.iframe-grow {
+        transform: translate(-50%, -50%) scale(0.75); /* Scale down for mobile */
+    }
+}
+
+@media (min-width: 600px) {
+    .iframe-container.iframe-grow {
+        transform: translate(-50%, -50%) scale(1); /* Full scale for desktop */
+    }
 }
 
 #terminal {

@@ -615,6 +615,7 @@ main {
 @media (max-width: 599px) {'
     .iframe-container .close-button {
         padding: calc(var(--close-button-size) / 2);
+	right: -5px;
     }
     .iframe-container.iframe-grow {
         transform: translate(-62%, -60%) scale(0.78); /* Scale down for mobile */
@@ -626,6 +627,9 @@ main {
 }
 
 @media (min-width: 600px) {
+    .iframe-container .close-button {
+        right: 11px;
+    }
     .iframe-container.iframe-grow {
         transform: translate(-50%, -50%) scale(1); /* Full scale for desktop */
     }

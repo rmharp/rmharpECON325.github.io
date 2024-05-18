@@ -573,7 +573,7 @@ main {
     transform: translate(-50%, -50%) scale(1);
     transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.8); /* Optional: Add a background to highlight the iframe */
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
 }
 
@@ -581,6 +581,7 @@ main {
     display: block;
     width: 100vw;
     height: 100vh;
+    --close-button-size: 50px;  /* Increased size when iframe grows */
 }
 
 .iframe-container iframe {
@@ -596,13 +597,15 @@ main {
     right: 20px;
     background: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: calc(var(--close-button-size) / 5);
+    font-size: calc(var(--close-button-size) / 3);  /* Adjust font size relative to button size */
     cursor: pointer;
     z-index: 1001;
     color: #000;
     border-radius: 5px;
-    transition: transform 1s ease-in-out;
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
+    width: 30px;
+    height: 30px;
 }
 
 #terminal {

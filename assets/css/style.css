@@ -645,6 +645,14 @@ main {
     font-family: monospace;
     border-radius: 20px;
     border: 2.5px solid var(--white-2);
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 #terminal a, #terminal a:visited {

@@ -658,6 +658,7 @@ main {
 
 .fullscreen-gallery.active { /* Class added when the gallery is active */
     transform: scale(1);
+    --close-button-size: 50px;  /* Increased size when iframe grows */
 }
 
 .fullscreen-gallery .gallery-img {

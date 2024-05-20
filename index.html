@@ -378,8 +378,9 @@
                                 
                                 switch(command.toLowerCase()) {
                                     case 'help':
-                                        const helpText = "<div>Here are all the available commands,<br/><br/>" +
-                                            "help logofetch repo originstory thrillingapp</div>";
+                                        const helpText = "<div>Here are all the available commands, <br/><br/>" +
+                                            "help logofetch repo originstory thrillingapp <br/>" +
+                                            "sudo audio</div>";
                                         typeEffect(responseDisplay, helpText, 25);
                                         break;
                                     case 'logofetch':
@@ -481,6 +482,10 @@ Riley Harper
                                         });
                                         
                                         iframeContainer.style.display = 'block'; // Ensure the iframe is initially visible but small
+                                        break;
+                                    case 'sudo':
+                                        typeEffect(responseDisplay, "<div>Sudo granttttt9!#1B!3#4F</div>", 0);
+                                        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
                                         break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);

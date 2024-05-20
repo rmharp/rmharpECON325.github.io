@@ -608,7 +608,7 @@ Riley Harper
                                         // Gallery HTML with left and right navigation buttons
                                         galleryContainer.innerHTML = `
                                             <button class="gallery-prev">&#10094;</button>
-                                            <img src="assets/images/gallery1.png" class="gallery-img" alt="Gallery Image">
+                                            <img src="assets/images/gallery1.png" class="gallery-img" alt="Gallery Image" style="opacity: 0;">
                                             <button class="gallery-next">&#10095;</button>
                                         `;
                                         document.body.appendChild(galleryContainer);
@@ -621,7 +621,11 @@ Riley Harper
                                         const imageElement = galleryContainer.querySelector('.gallery-img');
                                     
                                         function updateImage(index) {
-                                            imageElement.src = `assets/images/gallery${index}.png`;
+                                            imageElement.style.opacity = 0; // Hide image for transition
+                                            setTimeout(() => {
+                                                imageElement.src = `assets/images/gallery${index}.png`;
+                                                imageElement.onload = () => imageElement.style.opacity = 1; // Fade in new image
+                                            }, 200); // Delay for fade effect
                                             // Update button visibility
                                             prevButton.style.display = index === 1 ? 'none' : 'block';
                                             nextButton.style.display = index === totalImages ? 'none' : 'block';

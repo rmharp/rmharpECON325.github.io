@@ -552,14 +552,17 @@ Riley Harper
                                         `;
                                         document.body.appendChild(linkedinContainer);
                                     
-                                        // Close button functionality
+                                        // Retrieving the close button after it has been added to the document
                                         const closeBtn = linkedinContainer.querySelector('.close-button');
                                         closeBtn.addEventListener('click', function() {
                                             linkedinContainer.classList.remove('iframe-grow');
-                                            linkedinContainer.addEventListener('transitionend', function() {
+                                            function handleTransitionEnd() {
                                                 linkedinContainer.remove();
-                                            });
+                                                linkedinContainer.removeEventListener('transitionend', handleTransitionEnd);
+                                            }
+                                            linkedinContainer.addEventListener('transitionend', handleTransitionEnd);
                                         });
+
                                     
                                         // Display the container then apply the growth animation
                                         linkedinContainer.style.display = 'block';

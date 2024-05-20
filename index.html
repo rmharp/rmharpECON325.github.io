@@ -540,8 +540,10 @@ Riley Harper
                                         typeEffect(responseDisplay, "<div>Opening LinkedIn profile image...</div>", 0);
                                         const imageContainer = document.createElement('div');
                                         imageContainer.classList.add('iframe-container'); // Reuse the styling class for consistent UI
+                                        imageContainer.style.overflow = 'auto'; // Enable scrolling on this container only
+                                        imageContainer.style.maxHeight = '90vh'; // Set a maximum height to enforce scrolling
                                         imageContainer.innerHTML = `
-                                            <img src="assets/images/linkedin.png" alt="LinkedIn Profile Image" style="width: 100%; height: auto; max-width: none;">
+                                            <img src="assets/images/linkedin.png" alt="LinkedIn Profile Image" style="width: 100%; height: auto; max-width: none; display: block;">
                                             <div class="button-container">
                                                 <button class="close-button">Close</button>
                                             </div>

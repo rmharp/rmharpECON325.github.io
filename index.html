@@ -603,31 +603,29 @@ Riley Harper
                                     case 'gallery':
                                         typeEffect(responseDisplay, "<div>Opening gallery...</div>", 0);
                                         const galleryContainer = document.createElement('div');
-                                        galleryContainer.classList.add('fullscreen-gallery'); // Make sure to define this class in your CSS for fullscreen and overlay styles
+                                        galleryContainer.classList.add('fullscreen-gallery'); // Fullscreen overlay
                                     
                                         // Gallery HTML with left and right navigation buttons
                                         galleryContainer.innerHTML = `
-                                            <div class="gallery-controls">
-                                                <button class="gallery-prev">&#10094;</button>
-                                                <img src="assets/images/gallery1.png" class="gallery-img" alt="Gallery Image">
-                                                <button class="gallery-next">&#10095;</button>
-                                            </div>
+                                            <button class="gallery-prev">&#10094;</button>
+                                            <img src="assets/images/gallery1.png" class="gallery-img" alt="Gallery Image">
+                                            <button class="gallery-next">&#10095;</button>
                                         `;
                                         document.body.appendChild(galleryContainer);
                                     
-                                        // Initial image index
                                         let currentIndex = 1;
                                         const totalImages = 10; // Total number of images
                                     
-                                        // Function to update the image source
-                                        function updateImage(index) {
-                                            const imageElement = document.querySelector('.gallery-img');
-                                            imageElement.src = `assets/images/gallery${index}.png`;
-                                        }
+                                        const prevButton = galleryContainer.querySelector('.gallery-prev');
+                                        const nextButton = galleryContainer.querySelector('.gallery-next');
+                                        const imageElement = galleryContainer.querySelector('.gallery-img');
                                     
-                                        // Event listeners for navigation buttons
-                                        const prevButton = document.querySelector('.gallery-prev');
-                                        const nextButton = document.querySelector('.gallery-next');
+                                        function updateImage(index) {
+                                            imageElement.src = `assets/images/gallery${index}.png`;
+                                            // Update button visibility
+                                            prevButton.style.display = index === 1 ? 'none' : 'block';
+                                            nextButton.style.display = index === totalImages ? 'none' : 'block';
+                                        }
                                     
                                         prevButton.addEventListener('click', () => {
                                             if (currentIndex > 1) {
@@ -643,7 +641,9 @@ Riley Harper
                                             }
                                         });
                                     
-                                        // Display the container
+                                        // Initially call updateImage to set up the correct button visibility
+                                        updateImage(currentIndex);
+                                    
                                         galleryContainer.style.display = 'block';
                                         break;
                                     default:

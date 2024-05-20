@@ -537,46 +537,31 @@ Riley Harper
                                         });
                                         break;
                                     case 'linkedin':
-                                        typeEffect(responseDisplay, "<div>Opening LinkedIn badge...</div>", 0);
-                                        const linkedinContainer = document.createElement('div');
-                                        linkedinContainer.classList.add('iframe-container'); // Reuse the styling class for consistent UI
-                                        linkedinContainer.innerHTML = `
-                                            <div class="linkedin-content">
-                                                <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="rileymharper" data-version="v1">
-                                                    <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/rileymharper?trk=profile-badge">Riley Harper</a>
-                                                </div>
-                                            </div>
+                                        typeEffect(responseDisplay, "<div>Opening LinkedIn profile image...</div>", 0);
+                                        const imageContainer = document.createElement('div');
+                                        imageContainer.classList.add('iframe-container'); // Reuse the styling class for consistent UI
+                                        imageContainer.innerHTML = `
+                                            <img src="assets/images/linkedin.png" alt="LinkedIn Profile Image" style="width: 100%; height: auto; max-width: none;">
                                             <div class="button-container">
                                                 <button class="close-button">Close</button>
                                             </div>
                                         `;
-                                        document.body.appendChild(linkedinContainer);
+                                        document.body.appendChild(imageContainer);
                                     
-                                        // Retrieving the close button after it has been added to the document
-                                        const closeBtn = linkedinContainer.querySelector('.close-button');
+                                        // Close button functionality
+                                        const closeBtn = imageContainer.querySelector('.close-button');
                                         closeBtn.addEventListener('click', function() {
-                                            linkedinContainer.classList.remove('iframe-grow');
-                                            function handleTransitionEnd() {
-                                                linkedinContainer.remove();
-                                                linkedinContainer.removeEventListener('transitionend', handleTransitionEnd);
-                                            }
-                                            linkedinContainer.addEventListener('transitionend', handleTransitionEnd);
+                                            imageContainer.classList.remove('iframe-grow');
+                                            imageContainer.addEventListener('transitionend', function() {
+                                                imageContainer.remove();
+                                            });
                                         });
-
                                     
                                         // Display the container then apply the growth animation
-                                        linkedinContainer.style.display = 'block';
+                                        imageContainer.style.display = 'block';
                                         setTimeout(() => {
-                                            linkedinContainer.classList.add('iframe-grow');
-                                            // Check if LinkedIn script is already appended
-                                            if (!document.querySelector('script[src="https://platform.linkedin.com/badges/js/profile.js"]')) {
-                                                const linkedinScript = document.createElement('script');
-                                                linkedinScript.src = "https://platform.linkedin.com/badges/js/profile.js";
-                                                linkedinScript.async = true;
-                                                linkedinScript.defer = true;
-                                                document.head.appendChild(linkedinScript);
-                                            }
-                                        }, 10);
+                                            imageContainer.classList.add('iframe-grow');
+                                        }, 10); // A short delay should be sufficient
                                         break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);

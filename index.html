@@ -567,37 +567,6 @@ Riley Harper
                                             imageContainer.classList.add('iframe-grow');
                                         }, 10); // A short delay should be sufficient
                                         break;
-                                    case 'infographic':
-                                        typeEffect(responseDisplay, "<div>Opening infographic...</div>", 0);
-                                        const imageContainer = document.createElement('div');
-                                        imageContainer.classList.add('iframe-container'); // Reuse the styling class for consistent UI
-                                        imageContainer.style.overflow = 'auto'; // Enable scrolling on this container only
-                                        imageContainer.style.msOverflowStyle = 'none'; // IE and Edge
-                                        imageContainer.style.scrollbarWidth = 'none'; // Firefox
-                                        imageContainer.style.WebkitOverflowScrolling = 'touch'; // iOS Webkit
-                                        imageContainer.innerHTML = `
-                                            <img src="assets/images/infographic.png" alt="Infographic" style="width: 100%; height: auto; max-width: none; display: block;">
-                                            <div class="button-container">
-                                                <button class="close-button">Close</button>
-                                            </div>
-                                        `;
-                                        document.body.appendChild(imageContainer);
-                                    
-                                        // Close button functionality
-                                        const closeBtn = imageContainer.querySelector('.close-button');
-                                        closeBtn.addEventListener('click', function() {
-                                            imageContainer.classList.remove('iframe-grow');
-                                            imageContainer.addEventListener('transitionend', function() {
-                                                imageContainer.remove();
-                                            });
-                                        });
-                                    
-                                        // Display the container then apply the growth animation
-                                        imageContainer.style.display = 'block';
-                                        setTimeout(() => {
-                                            imageContainer.classList.add('iframe-grow');
-                                        }, 10); // A short delay should be sufficient
-                                        break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);
                             }

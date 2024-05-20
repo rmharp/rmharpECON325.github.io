@@ -610,11 +610,15 @@ Riley Harper
                                             <button class="gallery-prev" style="display: none;">&#10094;</button>
                                             <img src="assets/images/gallery1.png" class="gallery-img" alt="Gallery Image" style="opacity: 0;">
                                             <button class="gallery-next">&#10095;</button>
-                                            <div class="button-container">
-                                                <button class="close-button" style="z-index: 1002;">Close</button>
-                                            </div>
+                                            <button class="close-button" style="z-index: 1002;">Close</button>
                                         `;
                                         document.body.appendChild(galleryContainer);
+
+                                        // Start the scale up animation right after appending the container
+                                        setTimeout(() => {
+                                            galleryContainer.style.transform = 'scale(1)';
+                                        }, 10); // Short delay to ensure the CSS transition is triggered
+
                                     
                                         let currentIndex = 1;
                                         const totalImages = 10; // Total number of images
@@ -663,7 +667,11 @@ Riley Harper
                                         });
                                     
                                         closeButton.addEventListener('click', () => {
-                                            galleryContainer.remove();
+                                            // Start the scale down animation before removing the gallery
+                                            galleryContainer.style.transform = 'scale(0)';
+                                            galleryContainer.addEventListener('transitionend', () => {
+                                                galleryContainer.remove(); // Remove after animation completes
+                                            });
                                         });
                                     
                                         preloadImages();

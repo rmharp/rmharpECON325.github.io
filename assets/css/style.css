@@ -1180,6 +1180,35 @@ main {
     border: 2.5px solid rgba(255, 255, 255, 0.95);
 }
 
+.company-text video::-webkit-media-controls-play-button {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly dark background for visibility */
+    border-radius: 10px;
+}
+
+.company-text video::-webkit-media-controls-panel {
+    display: flex;
+    background-color: transparent; /* Makes the control bar background transparent */
+    border: none; /* Removes borders */
+}
+
+.company-text video::-webkit-media-controls-current-time-display,
+.company-text video::-webkit-media-controls-time-remaining-display,
+.company-text video::-webkit-media-controls-mute-button,
+.company-text video::-webkit-media-controls-volume-slider,
+.company-text video::-webkit-media-controls-fullscreen-button {
+    display: none; /* Hides these elements */
+}
+
+.company-text video:hover::-webkit-media-controls-panel {
+    opacity: 0.7; /* Shows controls with slight transparency on hover */
+}
+
+.company-text video::-webkit-media-controls-timeline {
+    cursor: pointer;
+    background-color: #fff; /* Custom color for the seek bar */
+}
+
 @media (max-width: 768px) {
     .company-text {
         flex-direction: column; /* Stacks video below the text on smaller screens */

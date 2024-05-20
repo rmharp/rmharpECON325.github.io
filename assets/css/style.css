@@ -1185,16 +1185,10 @@ main {
     display: none !important; /* Forces the controls to not display */
 }
 
-/* Shows play button when hovering over the video */
-.company-text video:hover::-webkit-media-controls-play-button {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* Centers the play button */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    border-radius: 50%; /* Circular play button */
-    padding: 10px;
+.company-text video::-webkit-media-controls-play-button {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly dark background for visibility */
+    border-radius: 5px;
 }
 
 /* Hide other specific controls that may not be hidden by default settings */

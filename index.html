@@ -34,6 +34,8 @@
 
         gtag('config', 'G-LXQLH66J4S');
     </script>
+    <!-- LinkedIn -->
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </head>
 
 <body>
@@ -535,6 +537,34 @@ Riley Harper
                                                 pdfContainer.remove();
                                             });
                                         });
+                                        break;
+                                    case 'linkedin':
+                                        const linkedinContainer = document.createElement('div');
+                                        linkedinContainer.classList.add('iframe-container'); // Reuse the styling class for consistent UI
+                                        linkedinContainer.innerHTML = `
+                                            <div class="linkedin-content">
+                                                <span class="close-button">×</span>
+                                                <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="rileymharper" data-version="v1">
+                                                    <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/rileymharper?trk=profile-badge">Riley Harper</a>
+                                                </div>
+                                            </div>
+                                        `;
+                                        document.body.appendChild(linkedinContainer);
+                                    
+                                        // Close button functionality
+                                        const closeBtn = linkedinContainer.querySelector('.close-button');
+                                        closeBtn.addEventListener('click', function() {
+                                            linkedinContainer.classList.remove('iframe-grow');
+                                            linkedinContainer.addEventListener('transitionend', function() {
+                                                linkedinContainer.remove();
+                                            });
+                                        });
+                                    
+                                        // Display the container then apply the growth animation
+                                        linkedinContainer.style.display = 'block';
+                                        setTimeout(() => { // Delay to allow browser to render the container before scaling
+                                            linkedinContainer.classList.add('iframe-grow');
+                                        }, 10); // A short delay should be sufficient
                                         break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);

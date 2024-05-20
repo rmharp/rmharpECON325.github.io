@@ -1174,8 +1174,10 @@ main {
 }
 
 .company-text video {
-    width: 100%; /* Ensures the video fills its container */
-    height: auto; /* Maintains the video aspect ratio */
+    width: 320px; /* Ensures the video fills its container */
+    height: 180; /* Maintains the video aspect ratio */
+    border-radius: 1px;
+    border: 2.5px solid rgba(255, 255, 255, 0.95);
 }
 
 @media (max-width: 768px) {

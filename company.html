@@ -244,6 +244,13 @@
                     <div class="responsive-iframe">
                         <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FTB09HRitplIjq4UDJvNIXb%2FECON-325-App%3Fnode-id%3D1-401%26t%3DRdHryPupShzAVsRX-1%26scaling%3Dmin-zoom%26page-id%3D0%253A1" allowfullscreen></iframe>
                     </div>
+
+                    <div class="reviews-section">
+                        <h2>Customer Reviews</h2>
+                        <div id="reviews-container">
+                            <!-- Reviews will be dynamically inserted here -->
+                        </div>
+                    </div>
                 
                     <script>
                         'use strict';
@@ -294,6 +301,21 @@
                                 }
                             });
                         }
+
+                        document.addEventListener("DOMContentLoaded", function() {
+                            fetch('path/to/your/reviews.json')  // Path to your JSON file or API endpoint
+                                .then(response => response.json())
+                                .then(data => {
+                                    const reviewsContainer = document.getElementById('reviews-container');
+                                    data.reviews.forEach(review => {
+                                        const reviewDiv = document.createElement('div');
+                                        reviewDiv.classList.add('review');
+                                        reviewDiv.innerHTML = `<strong>${review.name}</strong><p>${review.text}</p>`;
+                                        reviewsContainer.appendChild(reviewDiv);
+                                    });
+                                })
+                                .catch(error => console.error('Error loading the reviews:', error));
+                        });
                     </script>
                 </section>
 

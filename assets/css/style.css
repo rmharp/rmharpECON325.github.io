@@ -647,25 +647,24 @@ main {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1001;
 }
 
-.gallery-controls {
-    position: relative;
-    max-width: 90%; /* Limit maximum width to avoid touching the window edge */
-    max-height: 90%; /* Limit maximum height to avoid touching the window edge */
-}
-
-.gallery-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto; /* Adjust width automatically */
-    height: auto; /* Adjust height automatically */
-    object-fit: contain; /* Ensure the image is scaled properly */
+.fullscreen-gallery .gallery-img {
+    transition: opacity 0.5s ease-in-out;
+    display: block; /* Ensures the image takes full available space */
+    max-width: 90%; /* Adjusted for some margin */
+    max-height: 90vh; /* Adjusted for some margin */
+    object-fit: contain; /* Maintains the image's aspect ratio */
+    background: black; /* Black background for areas not covered by the image */
+    position: absolute; /* Absolute positioning inside the fixed container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering adjustment */
 }
 
 .gallery-prev, .gallery-next {
@@ -674,18 +673,19 @@ main {
     transform: translateY(-50%);
     font-size: 2em;
     color: white;
-    background: none;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better visibility */
     border: none;
     cursor: pointer;
     user-select: none;
+    padding: 10px 20px; /* Larger area for easier interaction */
 }
 
 .gallery-prev {
-    left: 0;
+    left: 10px; /* Adjusted to not touch the edge */
 }
 
 .gallery-next {
-    right: 0;
+    right: 10px; /* Adjusted to not touch the edge */
 }
 
 #terminal {

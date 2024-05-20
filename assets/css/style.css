@@ -636,9 +636,6 @@ main {
 }
 
 @media (min-width: 600px) {
-    .iframe-container .close-button {
-        right: 11px;
-    }
     .iframe-container.iframe-grow {
         transform: translate(-50%, -50%) scale(1); /* Full scale for desktop */
     }

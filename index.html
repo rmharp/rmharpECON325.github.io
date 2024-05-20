@@ -607,7 +607,7 @@ Riley Harper
                                     
                                         // Gallery HTML with left and right navigation buttons
                                         galleryContainer.innerHTML = `
-                                            <button class="gallery-prev">&#10094;</button>
+                                            <button class="gallery-prev" style="display: none;">&#10094;</button>
                                             <img src="assets/images/gallery1.png" class="gallery-img" alt="Gallery Image" style="opacity: 0;">
                                             <button class="gallery-next">&#10095;</button>
                                         `;
@@ -645,7 +645,7 @@ Riley Harper
                                             }
                                         });
                                     
-                                        // Initially call updateImage to set up the correct button visibility
+                                        // Initially call updateImage to set up the correct button visibility and trigger the first image's appearance
                                         updateImage(currentIndex);
                                     
                                         galleryContainer.style.display = 'block';

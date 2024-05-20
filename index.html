@@ -610,15 +610,14 @@ Riley Harper
                                             <button class="gallery-prev" style="display: none;">&#10094;</button>
                                             <img src="assets/images/gallery1.png" class="gallery-img" alt="Gallery Image" style="opacity: 0;">
                                             <button class="gallery-next">&#10095;</button>
-                                            <button class="close-button" style="z-index: 1002;">Close</button>
+                                            <button class="close-button">Close</button>
                                         `;
                                         document.body.appendChild(galleryContainer);
 
-                                        // Start the scale up animation right after appending the container
+                                        // Trigger the scale up transition
                                         setTimeout(() => {
-                                            galleryContainer.style.transform = 'scale(1)';
-                                        }, 10); // Short delay to ensure the CSS transition is triggered
-
+                                            galleryContainer.classList.add('active'); // Assuming 'active' triggers scale(1)
+                                        }, 10); // Short delay to ensure CSS transition is triggered
                                     
                                         let currentIndex = 1;
                                         const totalImages = 10; // Total number of images
@@ -637,7 +636,7 @@ Riley Harper
                                     
                                         function updateImage(index) {
                                             imageElement.style.opacity = 0; // Start by making the current image transparent
-                                        
+                                    
                                             setTimeout(() => {
                                                 imageElement.src = `assets/images/gallery${index}.png`; // Change the source of the image
                                                 imageElement.onload = () => { // When the new image is fully loaded
@@ -646,7 +645,7 @@ Riley Harper
                                                     }, 200); // You can adjust this delay based on how smooth and noticeable you want the transition
                                                 };
                                             }, 300); // Delay for source change to mitigate rapid clicking and cache loading issues
-                                        
+                                    
                                             // Update button visibility
                                             prevButton.style.display = index === 1 ? 'none' : 'block';
                                             nextButton.style.display = index === totalImages ? 'none' : 'block';
@@ -668,7 +667,7 @@ Riley Harper
                                     
                                         closeButton.addEventListener('click', () => {
                                             // Start the scale down animation before removing the gallery
-                                            galleryContainer.style.transform = 'scale(0)';
+                                            galleryContainer.classList.remove('active'); // Assuming 'active' triggers scale(1)
                                             galleryContainer.addEventListener('transitionend', () => {
                                                 galleryContainer.remove(); // Remove after animation completes
                                             });

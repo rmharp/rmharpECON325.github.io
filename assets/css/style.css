@@ -124,7 +124,16 @@
 }
 
 
+/* Hide scrollbar for all elements but allow scrolling */
+html {
+  overflow: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
 
+html::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
 
 
 /*-----------------------------------*\

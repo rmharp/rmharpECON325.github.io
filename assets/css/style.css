@@ -1222,12 +1222,9 @@ main {
 }
 
 .reviews-section {
-    margin-top: 20px;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: var(--shadow-1);
-    transition: var(--transition-1);
 }
 
 .review {
@@ -1236,12 +1233,22 @@ main {
     padding: 15px;
     margin-top: 10px;
     border-radius: 5px;
-    transition: var(--transition-1);
 }
 
-.review:hover {
-    box-shadow: var(--shadow-2);
-    background-color: var(--light-gray-70); /* Adjust color to fit your scheme */
+.review h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.review p {
+    color: #e5a00d; /* gold color for stars */
+    font-size: 18px;
+}
+
+.review blockquote {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
 }
 
 /*-----------------------------------*\

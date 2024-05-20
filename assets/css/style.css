@@ -1152,9 +1152,47 @@ main {
   border-radius: inherit;
 }
 
+/*-----------------------------------*\
+  #COMPANY
+\*-----------------------------------*/
 
+.company-text {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    justify-content: space-between; /* Spreads the paragraph and video apart */
+    gap: 20px; /* Optional: Adds space between the text and video */
+}
 
+.company-text p {
+    flex: 3; /* Gives the text more space relative to the video */
+    margin-right: 20px; /* Optional: Adds spacing between the text and the video */
+}
 
+.company-text .video {
+    flex: 2; /* Allocates less space to the video relative to the text */
+    max-width: 400px; /* Restricts the video width */
+}
+
+.company-text video {
+    width: 100%; /* Ensures the video fills its container */
+    height: auto; /* Maintains the video aspect ratio */
+}
+
+@media (max-width: 768px) {
+    .company-text {
+        flex-direction: column; /* Stacks video below the text on smaller screens */
+    }
+
+    .company-text .video {
+        max-width: 100%; /* Allows the video to expand on smaller screens */
+        order: -1; /* Moves the video above the text */
+    }
+
+    .company-text p,
+    .company-text .video {
+        flex: none; /* Resets flex settings for smaller screens */
+    }
+}
 
 /*-----------------------------------*\
   #PORTFOLIO

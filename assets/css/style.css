@@ -1192,12 +1192,17 @@ main {
     border-radius: 5px;
 }
 
+.company-text video::-webkit-media-controls-fullscreen-button {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
 /* Hide other specific controls that may not be hidden by default settings */
 .company-text video::-webkit-media-controls-current-time-display,
 .company-text video::-webkit-media-controls-time-remaining-display,
 .company-text video::-webkit-media-controls-mute-button,
 .company-text video::-webkit-media-controls-volume-slider,
-.company-text video::-webkit-media-controls-fullscreen-button,
 .company-text video::-webkit-media-controls-timeline { /* Hides the seek bar specifically */
     display: none;
 }

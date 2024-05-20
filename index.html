@@ -621,11 +621,17 @@ Riley Harper
                                         const imageElement = galleryContainer.querySelector('.gallery-img');
                                     
                                         function updateImage(index) {
-                                            imageElement.style.opacity = 0; // Hide image for transition
+                                            // Hide the image immediately before changing the source
+                                            imageElement.style.opacity = 0;
                                             setTimeout(() => {
                                                 imageElement.src = `assets/images/gallery${index}.png`;
-                                                imageElement.onload = () => imageElement.style.opacity = 1; // Fade in new image
-                                            }, 200); // Delay for fade effect
+                                                imageElement.onload = () => {
+                                                    // Wait for image to load completely before starting the fade-in
+                                                    setTimeout(() => {
+                                                        imageElement.style.opacity = 1; // Fade in new image
+                                                    }, 100); // Delay to start fade-in after image is fully loaded
+                                                };
+                                            }, 200); // Delay for changing the image source to ensure it starts loading
                                             // Update button visibility
                                             prevButton.style.display = index === 1 ? 'none' : 'block';
                                             nextButton.style.display = index === totalImages ? 'none' : 'block';

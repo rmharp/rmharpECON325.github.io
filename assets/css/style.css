@@ -1240,12 +1240,12 @@ main {
 }
 
 .review h3 {
-    color: var(--vegas-blue); /* Lighter blue for names */
+    color: var(--white-2); /* Lighter blue for names */
     margin-bottom: 5px; /* Space between the name and stars */
 }
 
 .review p {
-    color: var(--white-2); /* Using the UNC Blue for star ratings */
+    color: var(--vegas-blue); /* Using the UNC Blue for star ratings */
     font-size: 16px; /* Larger font size for stars */
 }
 

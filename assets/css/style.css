@@ -1180,9 +1180,10 @@ main {
     border: 2.5px solid rgba(255, 255, 255, 0.95);
 }
 
-/* Hides the default controls entirely */
 .company-text video::-webkit-media-controls-panel {
-    display: none !important; /* Forces the controls to not display */
+    display: flex;
+    background-color: transparent; /* Makes the control bar background transparent */
+    border: none; /* Removes borders */
 }
 
 .company-text video::-webkit-media-controls-play-button {

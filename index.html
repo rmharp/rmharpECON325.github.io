@@ -569,32 +569,30 @@ Riley Harper
                                         break;
                                     case 'infographic':
                                         typeEffect(responseDisplay, "<div>Opening infographic...</div>", 0);
-                                        const imageContainer = document.createElement('div');
-                                        imageContainer.classList.add('iframe-container'); // Reuse the styling class for consistent UI
-                                        imageContainer.style.overflow = 'auto'; // Enable scrolling on this container only
-                                        imageContainer.style.msOverflowStyle = 'none'; // IE and Edge
-                                        imageContainer.style.scrollbarWidth = 'none'; // Firefox
-                                        imageContainer.style.WebkitOverflowScrolling = 'touch'; // iOS Webkit
-                                        imageContainer.innerHTML = `
+                                        const infographicContainer = document.createElement('div');
+                                        infographicContainer.classList.add('iframe-container'); // Ensure this class has the correct initial CSS for transitions
+                                        infographicContainer.style.overflow = 'hidden'; // Initially set to hidden to prevent scrollbars during animation
+                                        infographicContainer.innerHTML = `
                                             <img src="assets/images/infographic.png" alt="Infographic" style="width: 100%; height: auto; max-width: none; display: block;">
                                             <div class="button-container">
                                                 <button class="close-button">Close</button>
                                             </div>
                                         `;
-                                        document.body.appendChild(imageContainer);
+                                        document.body.appendChild(infographicContainer);
                                     
-                                        // Make sure the element is displayed before adding the growth effect
-                                        imageContainer.style.display = 'block';
+                                        // Display the container then apply the growth animation
+                                        infographicContainer.style.display = 'block';
                                         setTimeout(() => {
-                                            imageContainer.classList.add('iframe-grow');
+                                            infographicContainer.style.overflow = 'auto'; // Enable scrolling after the animation
+                                            infographicContainer.classList.add('iframe-grow');
                                         }, 10); // A short delay should be sufficient
                                     
                                         // Close button functionality
-                                        const closeBtn = imageContainer.querySelector('.close-button');
-                                        closeBtn.addEventListener('click', function() {
-                                            imageContainer.classList.remove('iframe-grow');
-                                            imageContainer.addEventListener('transitionend', function() {
-                                                imageContainer.remove();
+                                        const closeBtnInfographic = infographicContainer.querySelector('.close-button');
+                                        closeBtnInfographic.addEventListener('click', function() {
+                                            infographicContainer.classList.remove('iframe-grow');
+                                            infographicContainer.addEventListener('transitionend', function() {
+                                                infographicContainer.remove();
                                             });
                                         });
                                         break;

@@ -655,16 +655,13 @@ main {
 }
 
 .fullscreen-gallery .gallery-img {
-    transition: opacity 0.5s ease-in-out;
-    display: block; /* Ensures the image takes full available space */
-    max-width: 90%; /* Adjusted for some margin */
-    max-height: 90vh; /* Adjusted for some margin */
-    object-fit: contain; /* Maintains the image's aspect ratio */
-    background: black; /* Black background for areas not covered by the image */
-    position: absolute; /* Absolute positioning inside the fixed container */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Centering adjustment */
+    display: block;
+    max-width: 90%;  /* Allows for margins from the edges */
+    max-height: 90vh;  /* Allows for vertical margins */
+    object-fit: contain;
+    width: auto;  /* Adjust width automatically */
+    height: auto;  /* Adjust height automatically */
+    transition: opacity 0.5s ease-in-out;  /* Fade effect for switching images */
 }
 
 .gallery-prev, .gallery-next {
@@ -673,19 +670,18 @@ main {
     transform: translateY(-50%);
     font-size: 2em;
     color: white;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better visibility */
+    background: rgba(0, 0, 0, 0.5);  /* Semi-transparent background for buttons */
     border: none;
     cursor: pointer;
-    user-select: none;
-    padding: 10px 20px; /* Larger area for easier interaction */
+    padding: 10px 20px;
 }
 
 .gallery-prev {
-    left: 10px; /* Adjusted to not touch the edge */
+    left: 10px;
 }
 
 .gallery-next {
-    right: 10px; /* Adjusted to not touch the edge */
+    right: 10px;
 }
 
 #terminal {

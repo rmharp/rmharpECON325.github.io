@@ -1245,7 +1245,7 @@ main {
 }
 
 .review p {
-    color: var(--unc-blue-crayola); /* Using the UNC Blue for star ratings */
+    color: var(--white-2); /* Using the UNC Blue for star ratings */
     font-size: 16px; /* Larger font size for stars */
 }
 

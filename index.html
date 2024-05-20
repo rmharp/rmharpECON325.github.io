@@ -524,10 +524,6 @@ Riley Harper
                                         
                                         // Ensure the element is initially visible but scaled down
                                         pdfContainer.style.display = 'block';
-                                        setTimeout(() => { // Delay to allow browser to render the container before scaling
-                                            pdfContainer.classList.add('iframe-grow');
-                                        }, 10); // A short delay should be sufficient
-                                    
                                         pdfContainer.querySelector('.close-button').addEventListener('click', function() {
                                             pdfContainer.classList.remove('iframe-grow');
                                             pdfContainer.addEventListener('transitionend', function() {

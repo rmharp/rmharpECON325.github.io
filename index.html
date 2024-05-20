@@ -290,8 +290,6 @@
                         }
                         
                         (function() {
-                            'use strict';
-                            
                             const terminalForm = document.getElementById('terminal-form');
                             const terminalInput = document.getElementById('input');
                             const terminalOutput = document.getElementById('output');
@@ -312,7 +310,6 @@
                                 // Check for 'K' key and either Cmd (metaKey) or Ctrl key
                                 if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
                                     event.preventDefault();  // Prevent default behavior associated with Ctrl + K or Cmd + K
-                                    const terminalOutput = document.getElementById('output');
                                     terminalOutput.innerHTML = '';  // Clear the terminal output
                                     userScrolledUp = false;  // Reset scroll detection when clearing the terminal
                                 }

@@ -637,9 +637,9 @@ Riley Harper
                                                 imageElement.onload = () => { // When the new image is fully loaded
                                                     setTimeout(() => { // Add a slight delay to ensure transition is noticeable
                                                         imageElement.style.opacity = 1; // Then fade in the new image
-                                                    }, 100); // You can adjust this delay based on how smooth and noticeable you want the transition
+                                                    }, 200); // You can adjust this delay based on how smooth and noticeable you want the transition
                                                 };
-                                            }, 200); // Delay for source change to mitigate rapid clicking and cache loading issues
+                                            }, 300); // Delay for source change to mitigate rapid clicking and cache loading issues
                                         
                                             // Update button visibility
                                             prevButton.style.display = index === 1 ? 'none' : 'block';

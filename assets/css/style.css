@@ -635,6 +635,13 @@ main {
     }
 }
 
+.iframe-container .linkedin-content {
+    padding: 20px;
+    text-align: center;
+    background: white;
+    border-radius: 5px;
+}
+
 #terminal {
     height: 384px; /* Assuming 16px line height x 24 lines */
     overflow-y: auto; /* Enables vertical scrolling within the terminal */

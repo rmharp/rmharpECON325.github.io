@@ -1180,33 +1180,31 @@ main {
     border: 2.5px solid rgba(255, 255, 255, 0.95);
 }
 
-.company-text video::-webkit-media-controls-play-button {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.5); /* Slightly dark background for visibility */
-    border-radius: 10px;
-}
-
+/* Hides the default controls entirely */
 .company-text video::-webkit-media-controls-panel {
-    display: flex;
-    background-color: transparent; /* Makes the control bar background transparent */
-    border: none; /* Removes borders */
+    display: none !important; /* Forces the controls to not display */
 }
 
+/* Shows play button when hovering over the video */
+.company-text video:hover::-webkit-media-controls-play-button {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centers the play button */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border-radius: 50%; /* Circular play button */
+    padding: 10px;
+}
+
+/* Hide other specific controls that may not be hidden by default settings */
 .company-text video::-webkit-media-controls-current-time-display,
 .company-text video::-webkit-media-controls-time-remaining-display,
 .company-text video::-webkit-media-controls-mute-button,
 .company-text video::-webkit-media-controls-volume-slider,
-.company-text video::-webkit-media-controls-fullscreen-button {
-    display: none; /* Hides these elements */
-}
-
-.company-text video:hover::-webkit-media-controls-panel {
-    opacity: 0.7; /* Shows controls with slight transparency on hover */
-}
-
-.company-text video::-webkit-media-controls-timeline {
-    cursor: pointer;
-    background-color: #fff; /* Custom color for the seek bar */
+.company-text video::-webkit-media-controls-fullscreen-button,
+.company-text video::-webkit-media-controls-timeline { /* Hides the seek bar specifically */
+    display: none;
 }
 
 @media (max-width: 768px) {

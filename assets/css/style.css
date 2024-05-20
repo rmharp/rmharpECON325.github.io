@@ -677,6 +677,7 @@ main {
     border: none;
     cursor: pointer;
     padding: 8px 15px;
+    z-index: 1010;
 }
 
 .gallery-prev {

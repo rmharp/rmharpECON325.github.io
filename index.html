@@ -296,6 +296,8 @@
                             const terminal = document.getElementById('terminal');
 
                             let userScrolledUp = false;
+                            let commandHistory = []; // Array to store command history
+                            let historyIndex = -1; // Index to track the current command in the history
                 
                             document.addEventListener('DOMContentLoaded', function() {
                                 const initialMessage = "Type 'help' to see the list of available commands.<br/>" +
@@ -307,18 +309,36 @@
                             });
 
                             document.addEventListener('keydown', function(event) {
-                                // Check for 'K' key and either Cmd (metaKey) or Ctrl key
                                 if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
-                                    event.preventDefault();  // Prevent default behavior associated with Ctrl + K or Cmd + K
-                                    terminalOutput.innerHTML = '';  // Clear the terminal output
-                                    userScrolledUp = false;  // Reset scroll detection when clearing the terminal
+                                    event.preventDefault(); // Prevent default behavior associated with Ctrl + K or Cmd + K
+                                    terminalOutput.innerHTML = ''; // Clear the terminal output
+                                    userScrolledUp = false; // Reset scroll detection when clearing the terminal
+                                } else if (event.key === 'ArrowUp') {
+                                    event.preventDefault();
+                                    if (historyIndex < commandHistory.length - 1) {
+                                        historyIndex++;
+                                        terminalInput.value = commandHistory[commandHistory.length - 1 - historyIndex];
+                                    }
+                                } else if (event.key === 'ArrowDown') {
+                                    event.preventDefault();
+                                    if (historyIndex > 0) {
+                                        historyIndex--;
+                                        terminalInput.value = commandHistory[commandHistory.length - 1 - historyIndex];
+                                    } else {
+                                        historyIndex = -1;
+                                        terminalInput.value = ''; // Clear input if no more history to go down to
+                                    }
                                 }
                             });
                 
                             terminalForm.addEventListener('submit', function(event) {
-                                event.preventDefault();  // Prevent form from submitting traditionally
+                                event.preventDefault(); // Prevent form from submitting traditionally
                                 const command = terminalInput.value.trim();
-                                terminalInput.value = '';  // Clear the input after getting the command
+                                if (command !== '') {
+                                    commandHistory.push(command); // Add command to history
+                                    historyIndex = -1; // Reset history index
+                                }
+                                terminalInput.value = ''; // Clear the input after getting the command
                                 processCommand(command);
                             });
 

@@ -397,7 +397,7 @@
                                     case 'help':
                                         const helpText = "<div>Here are all the available commands, <br/><br/>" +
                                             "help logofetch repo originstory thrillingapp <br/>" +
-                                            "sudo audio</div>";
+                                            "sudo audio magazine</div>";
                                         typeEffect(responseDisplay, helpText, 25);
                                         break;
                                     case 'logofetch':
@@ -509,6 +509,28 @@ Riley Harper
                                         typeEffect(responseDisplay, "<div>Playing audio file...</div>", 25);
                                         const audio = new Audio('assets/audio/audio.mp3'); // Correct the path as needed
                                         audio.play();
+                                        break;
+                                    case 'magazine':
+                                        const pdfContainer = document.createElement('div');
+                                        pdfContainer.classList.add('iframe-container');
+                                        pdfContainer.innerHTML = `
+                                            <iframe src="assets/images/magazine.pdf" type="application/pdf" allowfullscreen></iframe>
+                                            <div class="button-container">
+                                                <button class="close-button">Close</button>
+                                            </div>
+                                        `;
+                                        document.body.appendChild(pdfContainer);
+                                        
+                                        pdfContainer.querySelector('.close-button').addEventListener('click', function() {
+                                            pdfContainer.classList.remove('iframe-grow');
+                                            pdfContainer.addEventListener('transitionend', function() {
+                                                pdfContainer.remove();
+                                            });
+                                        });
+                        
+                                        setTimeout(() => { // Delay to ensure display is updated before applying transform
+                                            pdfContainer.classList.add('iframe-grow');
+                                        }, 100); // Small delay to manage transitions smoothly
                                         break;
                                     default:
                                         typeEffect(responseDisplay, "shell: command not found: " + command + ". Try 'help' to get started.", 25);

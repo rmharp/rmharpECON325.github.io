@@ -656,15 +656,16 @@ main {
 
 .gallery-controls {
     position: relative;
-    width: 80%;
-    height: 80%;
+    max-width: 90%; /* Limit maximum width to avoid touching the window edge */
+    max-height: 90%; /* Limit maximum height to avoid touching the window edge */
 }
 
 .gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: opacity 0.5s ease;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; /* Adjust width automatically */
+    height: auto; /* Adjust height automatically */
+    object-fit: contain; /* Ensure the image is scaled properly */
 }
 
 .gallery-prev, .gallery-next {
@@ -680,11 +681,11 @@ main {
 }
 
 .gallery-prev {
-    left: 10px;
+    left: 0;
 }
 
 .gallery-next {
-    right: 10px;
+    right: 0;
 }
 
 #terminal {

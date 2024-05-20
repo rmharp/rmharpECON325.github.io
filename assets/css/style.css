@@ -652,6 +652,8 @@ main {
     justify-content: center;
     align-items: center;
     z-index: 1001;
+    transform: scale(0); /* Start initially scaled down */
+    transition: transform 0.5s ease; /* Smooth scaling transition */
 }
 
 .fullscreen-gallery .gallery-img {

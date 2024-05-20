@@ -571,7 +571,10 @@ Riley Harper
                                         typeEffect(responseDisplay, "<div>Opening infographic...</div>", 0);
                                         const infographicContainer = document.createElement('div');
                                         infographicContainer.classList.add('iframe-container'); // Ensure this class has the correct initial CSS for transitions
-                                        infographicContainer.style.overflow = 'hidden'; // Initially set to hidden to prevent scrollbars during animation
+                                        infographicContainer.style.overflow = 'auto'; // Initially set to hidden to prevent scrollbars during animation
+                                        infographicContainer.style.msOverflowStyle = 'none'; // IE and Edge
+                                        infographicContainer.style.scrollbarWidth = 'none'; // Firefox
+                                        infographicContainer.style.WebkitOverflowScrolling = 'touch'; // iOS Webkit
                                         infographicContainer.innerHTML = `
                                             <img src="assets/images/infographic.png" alt="Infographic" style="width: 100%; height: auto; max-width: none; display: block;">
                                             <div class="button-container">

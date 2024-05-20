@@ -631,9 +631,9 @@ Riley Harper
                                                     // Wait for image to load completely before starting the fade-in
                                                     setTimeout(() => {
                                                         imageElement.style.opacity = 1; // Fade in new image
-                                                    }, 100); // Delay to start fade-in after image is fully loaded
+                                                    }, 200); // Delay to start fade-in after image is fully loaded
                                                 };
-                                            }, 200); // Delay for changing the image source to ensure it starts loading
+                                            }, 300); // Delay for changing the image source to ensure it starts loading
                                             // Update button visibility
                                             prevButton.style.display = index === 1 ? 'none' : 'block';
                                             nextButton.style.display = index === totalImages ? 'none' : 'block';

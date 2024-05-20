@@ -541,7 +541,9 @@ Riley Harper
                                         const imageContainer = document.createElement('div');
                                         imageContainer.classList.add('iframe-container'); // Reuse the styling class for consistent UI
                                         imageContainer.style.overflow = 'auto'; // Enable scrolling on this container only
-                                        imageContainer.style.maxHeight = '90vh'; // Set a maximum height to enforce scrolling
+                                        imageContainer.style.msOverflowStyle = 'none'; // IE and Edge
+                                        imageContainer.style.scrollbarWidth = 'none'; // Firefox
+                                        imageContainer.style.WebkitOverflowScrolling = 'touch'; // iOS Webkit
                                         imageContainer.innerHTML = `
                                             <img src="assets/images/linkedin.png" alt="LinkedIn Profile Image" style="width: 100%; height: auto; max-width: none; display: block;">
                                             <div class="button-container">

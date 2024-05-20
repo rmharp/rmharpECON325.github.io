@@ -1222,36 +1222,39 @@ main {
 }
 
 .reviews-section {
-    background-color: #333; /* Dark background for the section */
+    background-color: var(--eerie-black-1); /* Darker background for the section */
+    color: var(--white-1); /* White text color for better readability */
     padding: 20px;
     border-radius: 5px;
-    color: #fff; /* White text color */
+    box-shadow: var(--shadow-2); /* Consistent shadow with the rest of the site */
+    margin-top: 20px; /* Spacing from the previous content */
 }
 
 .review {
-    background-color: #222; /* Even darker background for each review */
-    border: 1px solid #444; /* Subtle border */
+    background-color: var(--onyx); /* Slightly lighter background for the reviews to create depth */
+    border: 1px solid var(--jet); /* Subtle border to distinguish reviews */
     padding: 15px;
-    margin-top: 10px;
+    margin-top: 15px; /* Space between reviews */
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    box-shadow: var(--shadow-1); /* Light shadow for depth */
 }
 
 .review h3 {
-    color: #ccc; /* Light gray color for names */
+    color: var(--vegas-blue); /* Lighter blue for names */
+    margin-bottom: 5px; /* Space between the name and stars */
 }
 
 .review p {
-    color: #e5a00d; /* Gold color for stars, adjust if needed */
-    font-size: 16px; /* Slightly larger font for visibility */
+    color: var(--unc-blue-crayola); /* Using the UNC Blue for star ratings */
+    font-size: 16px; /* Larger font size for stars */
 }
 
 .review blockquote {
     font-style: italic;
-    color: #bbb; /* Lighter text color for contrast */
-    border-left: 3px solid #555; /* Subtle accent line */
-    padding-left: 10px; /* Spacing for the line */
-    margin-top: 5px;
+    color: var(--white-2); /* Slightly off-white for contrast */
+    border-left: 3px solid var(--vegas-blue); /* Accent color for blockquote */
+    padding-left: 10px; /* Padding to offset text from border */
+    margin-top: 10px; /* Space between stars and comment */
 }
 
 /*-----------------------------------*\

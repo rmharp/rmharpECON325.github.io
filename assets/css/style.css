@@ -665,8 +665,8 @@ main {
     top: 50%;  /* Align center vertically */
     left: 50%;  /* Align center horizontally */
     transform: translate(-50%, -50%);  /* Offset the image to truly center it */
-    border-radius: 20px;
-    border: 2.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1px;
+    border: 2.5px solid rgba(255, 255, 255, 0.95);
 }
 
 .gallery-prev, .gallery-next {

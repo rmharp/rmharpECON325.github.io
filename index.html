@@ -460,19 +460,19 @@ Riley Harper
                                         `;
                                         document.body.appendChild(iframeContainer);
                                     
-                                        // Make sure the iframe container is visible before starting transitions
-                                        iframeContainer.style.display = 'block';
-                                        iframeContainer.classList.add('iframe-grow');  // Apply scaling transition
+                                        // Trigger the visibility and scaling
+                                        setTimeout(() => {
+                                            iframeContainer.classList.add('iframe-grow');
+                                        }, 10);  // This slight delay ensures CSS is fully parsed and applied before the class changes.
                                     
-                                        // Close button functionality
-                                        const closeBtn = iframeContainer.querySelector('.close-button');
-                                        closeBtn.addEventListener('click', function() {
-                                            iframeContainer.classList.remove('iframe-grow');  // Trigger the shrink animation
+                                        // Handling the close button functionality
+                                        const closeButton = iframeContainer.querySelector('.close-button');
+                                        closeButton.addEventListener('click', () => {
+                                            iframeContainer.classList.remove('iframe-grow');
                                             iframeContainer.addEventListener('transitionend', () => {
-                                                iframeContainer.remove();  // Remove the container after transition completes
+                                                iframeContainer.remove();
                                             });
                                         });
-                                    
                                         break;
                                     case 'thrillingapp':
                                         typeEffect(responseDisplay, "<div>Opening Chapel Thrill Escapes application...</div>", 0);

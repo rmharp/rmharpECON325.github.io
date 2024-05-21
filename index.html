@@ -455,26 +455,21 @@ Riley Harper
                                         const videoContainer = document.createElement('div');
                                         videoContainer.classList.add('video-container');
                                         videoContainer.innerHTML = `
-                                            <video controls>
-                                                <source src="assets/videos/video1.mp4" type="video/mp4">
-                                                Your browser does not support the video tag.
-                                            </video>
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/er2PS85mJHE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         `;
                                         document.body.appendChild(videoContainer);
-                        
-                                        const videoElement = videoContainer.querySelector('video');
-                                        videoElement.addEventListener('loadedmetadata', function() {
+                                    
+                                        const iframeElement = videoContainer.querySelector('iframe');
+                                        iframeElement.onload = function() {
                                             videoContainer.classList.add('video-grow');
-                                        });
-                        
-                                        videoElement.addEventListener('ended', function() {
+                                        };
+                                    
+                                        iframeElement.addEventListener('ended', function() {
                                             videoContainer.classList.remove('video-grow');
                                             videoContainer.addEventListener('transitionend', function() {
                                                 videoContainer.remove();
                                             });
                                         });
-                        
-                                        videoElement.play();
                                         break;
                                     case 'thrillingapp':
                                         typeEffect(responseDisplay, "<div>Opening Chapel Thrill Escapes application...</div>", 0);

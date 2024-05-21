@@ -453,23 +453,30 @@ Riley Harper
                                     case 'originstory':
                                         typeEffect(responseDisplay, "<div>Playing origin story video...</div>", 0);
                                         const videoContainer = document.createElement('div');
-                                        videoContainer.classList.add('video-container');
+                                        videoContainer.classList.add('iframe-container');
                                         videoContainer.innerHTML = `
                                             <iframe width="560" height="315" src="https://www.youtube.com/embed/er2PS85mJHE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <div class="button-container">
+                                                <button class="close-button">Close</button>
+                                            </div>
                                         `;
                                         document.body.appendChild(videoContainer);
                                     
-                                        const iframeElement = videoContainer.querySelector('iframe');
-                                        iframeElement.onload = function() {
-                                            videoContainer.classList.add('video-grow');
-                                        };
+                                        // Style and transition set-up
+                                        videoContainer.style.display = 'block'; // Ensure the container is initially visible but small
+                                        setTimeout(() => {
+                                            videoContainer.classList.add('iframe-grow'); // Apply transition to grow
+                                        }, 10); // Delay to allow iframe to load a bit before transitioning
                                     
-                                        iframeElement.addEventListener('ended', function() {
-                                            videoContainer.classList.remove('video-grow');
-                                            videoContainer.addEventListener('transitionend', function() {
-                                                videoContainer.remove();
+                                        // Close button functionality
+                                        const closeButton = videoContainer.querySelector('.close-button');
+                                        closeButton.addEventListener('click', function() {
+                                            videoContainer.classList.remove('iframe-grow'); // Trigger the shrink animation
+                                            videoContainer.addEventListener('transitionend', () => {
+                                                videoContainer.remove(); // Remove the container after transition completes
                                             });
                                         });
+                                    
                                         break;
                                     case 'thrillingapp':
                                         typeEffect(responseDisplay, "<div>Opening Chapel Thrill Escapes application...</div>", 0);

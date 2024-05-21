@@ -592,6 +592,7 @@ main {
     display: block;
     width: 100vw;
     height: 100vh;
+    transform: translate(-50%, -50%) scale(1); /* Scale up to normal size */
     --close-button-size: 50px;  /* Increased size when iframe grows */
 }
 

@@ -589,12 +589,12 @@ main {
 }
 
 .iframe-container.iframe-grow {
-    visibility: visible; /* Make visible when grown */
+    display: block;
     width: 100vw;
     height: 100vh;
-    transform: translate(-50%, -50%) scale(1); /* Adjust scale to normal */
-    transition-delay: 0s; /* Apply visibility immediately */
+    --close-button-size: 50px;  /* Increased size when iframe grows */
 }
+
 
 .iframe-container iframe {
     width: 100%;
@@ -609,16 +609,17 @@ main {
     right: 1.5px;
     background: #fff;
     border: none;
-    padding: 10px; /* Adjusted for simplification */
-    font-size: 16px; /* Adjusted for simplification */
+    padding: calc(var(--close-button-size) / 5);
+    font-size: calc(var(--close-button-size) / 3);
     cursor: pointer;
     z-index: 1001;
     color: #000;
     border-radius: 5px;
-    width: 50px; /* Adjusted for simplification */
-    height: 50px; /* Adjusted for simplification */
+    transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
+    width: calc(2.3* var(--close-button-size));
+    height: calc(0.8* var(--close-button-size));
     text-align: center;
-    line-height: 50px; /* Adjusted for better alignment */
+    line-height: 50%;
 }
 
 /* Ensure transformations are correctly triggered at different breakpoints */

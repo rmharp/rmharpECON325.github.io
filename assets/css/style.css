@@ -575,7 +575,6 @@ main {
 
 .iframe-container {
     display: block; /* Changed to block but will be effectively hidden due to tiny size */
-    visibility: hidden; /* Hide initially */
     position: fixed;
     top: 50%;
     left: 50%;

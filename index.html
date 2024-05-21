@@ -462,18 +462,20 @@ Riley Harper
                                         `;
                                         document.body.appendChild(videoContainer);
                                     
+                                        videoContainer.querySelector('iframe').addEventListener('load', function() {
+                                            // Ensure the visibility and the animation starts only after the iframe has fully loaded
+                                            requestAnimationFrame(() => {
+                                                requestAnimationFrame(() => {
+                                                    videoContainer.classList.add('iframe-grow');
+                                                });
+                                            });
+                                        });
+                                    
                                         videoContainer.querySelector('.close-button').addEventListener('click', function() {
                                             videoContainer.classList.remove('iframe-grow');
                                             videoContainer.addEventListener('transitionend', function() {
                                                 videoContainer.remove();
                                             });
-                                        });
-                                    
-                                        videoContainer.querySelector('iframe').addEventListener('load', function() {
-                                            setTimeout(() => {
-                                                videoContainer.style.visibility = 'visible';
-                                                videoContainer.classList.add('iframe-grow');
-                                            }, 500); // Delay to allow iframe to load before showing and expanding
                                         });
                                     
                                         break;
@@ -490,17 +492,19 @@ Riley Harper
                                         `;
                                         document.body.appendChild(iframeContainer);
                                     
-                                        iframeContainer.querySelector('.close-button').addEventListener('click', function() {
-                                            iframeContainer.classList.remove('iframe-grow');
-                                            iframeContainer.addEventListener('transitionend', function() {                                                iframeContainer.remove();
+                                        iframeContainer.querySelector('iframe').addEventListener('load', function() {
+                                            requestAnimationFrame(() => {
+                                                requestAnimationFrame(() => {
+                                                    iframeContainer.classList.add('iframe-grow');
+                                                });
                                             });
                                         });
                                     
-                                        iframeContainer.querySelector('iframe').addEventListener('load', function() {
-                                            setTimeout(() => {
-                                                iframeContainer.style.visibility = 'visible';
-                                                iframeContainer.classList.add('iframe-grow');
-                                            }, 500); // Delay to ensure smooth loading and display
+                                        iframeContainer.querySelector('.close-button').addEventListener('click', function() {
+                                            iframeContainer.classList.remove('iframe-grow');
+                                            iframeContainer.addEventListener('transitionend', function() {
+                                                iframeContainer.remove();
+                                            });
                                         });
                                     
                                         break;

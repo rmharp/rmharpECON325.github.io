@@ -465,7 +465,6 @@ Riley Harper
                                         videoContainer.querySelector('.close-button').addEventListener('click', function() {
                                             videoContainer.classList.remove('iframe-grow');
                                             videoContainer.addEventListener('transitionend', function() {
-                                                videoContainer.style.visibility = 'hidden';
                                                 videoContainer.remove();
                                             });
                                         });
@@ -493,9 +492,7 @@ Riley Harper
                                     
                                         iframeContainer.querySelector('.close-button').addEventListener('click', function() {
                                             iframeContainer.classList.remove('iframe-grow');
-                                            iframeContainer.addEventListener('transitionend', function() {
-                                                iframeContainer.style.visibility = 'hidden';
-                                                iframeContainer.remove();
+                                            iframeContainer.addEventListener('transitionend', function() {                                                iframeContainer.remove();
                                             });
                                         });
                                     

@@ -456,53 +456,62 @@ Riley Harper
                                         videoContainer.classList.add('iframe-container');
                                         videoContainer.innerHTML = `
                                             <iframe src="https://www.youtube.com/embed/er2PS85mJHE?rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                            <div class="button-container">
-                                                <button class="close-button">Close</button>
-                                            </div>
+                                            <button class="close-button">Close</button>
                                         `;
                                         document.body.appendChild(videoContainer);
-
+                                        console.log('Video container added to the body.');
+                                    
                                         videoContainer.querySelector('.close-button').addEventListener('click', function() {
                                             videoContainer.classList.remove('iframe-grow');
                                             videoContainer.addEventListener('transitionend', function() {
                                                 videoContainer.remove();
                                             });
                                         });
-
+                                    
                                         videoContainer.querySelector('iframe').addEventListener('load', function() {
+                                            console.log('Video iframe loaded.');
                                             setTimeout(() => {
                                                 videoContainer.classList.add('iframe-grow');
-                                            }, 500); // Delay to allow iframe to load before transitioning
+                                            }, 500);
                                         });
-                                        
-                                        videoContainer.style.display = 'block'; // Ensure the iframe is initially visible but small
+                                    
+                                        videoContainer.querySelector('iframe').addEventListener('error', function() {
+                                            console.error('Failed to load video iframe.');
+                                        });
+                                    
+                                        videoContainer.style.display = 'block';
                                         break;
+                                    
                                     case 'thrillingapp':
                                         typeEffect(responseDisplay, "<div>Opening Chapel Thrill Escapes application...</div>", 0);
                                         const iframeContainer = document.createElement('div');
                                         iframeContainer.classList.add('iframe-container');
                                         iframeContainer.innerHTML = `
                                             <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FTB09HRitplIjq4UDJvNIXb%2FECON-325-App%3Fnode-id%3D1-401%26t%3DRdHryPupShzAVsRX-1%26scaling%3Dmin-zoom%26page-id%3D0%253A1" allowfullscreen></iframe>
-                                            <div class="button-container">
-                                                <button class="close-button">Close</button>
-                                            </div>
+                                            <button class="close-button">Close</button>
                                         `;
                                         document.body.appendChild(iframeContainer);
-                                        
+                                        console.log('App iframe added to the body.');
+                                    
                                         iframeContainer.querySelector('.close-button').addEventListener('click', function() {
                                             iframeContainer.classList.remove('iframe-grow');
                                             iframeContainer.addEventListener('transitionend', function() {
                                                 iframeContainer.remove();
                                             });
                                         });
-                        
+                                    
                                         iframeContainer.querySelector('iframe').addEventListener('load', function() {
+                                            console.log('App iframe loaded.');
                                             setTimeout(() => {
                                                 iframeContainer.classList.add('iframe-grow');
-                                            }, 500); // Delay to allow iframe to load before transitioning
+                                            }, 500);
                                         });
-                                        
-                                        iframeContainer.style.display = 'block'; // Ensure the iframe is initially visible but small
+                                    
+                                        iframeContainer.querySelector('iframe').addEventListener('error', function() {
+                                            console.error('Failed to load app iframe.');
+                                        });
+                                    
+                                        iframeContainer.style.display = 'block';
                                         break;
                                     case 'sudo':
                                         typeEffect(responseDisplay, "<div>Insufficient permissions; sudo access denied.</div>", 0);

@@ -451,27 +451,17 @@ Riley Harper
                                         window.open('https://github.com/rmharp/rmharp.github.io', '_blank');
                                         break;
                                     case 'originstory':
-                                        typeEffect(responseDisplay, "<div>Playing origin story video...</div>", 0);
-                                        const iframeContainer = document.createElement('div');
-                                        iframeContainer.classList.add('iframe-container');
-                                        iframeContainer.innerHTML = `
-                                            <iframe src="https://www.youtube.com/embed/er2PS85mJHE?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        typeEffect(responseDisplay, "<div>Playing origin story video...</div>", 25);
+                                        const videoContainer = document.createElement('div');
+                                        videoContainer.classList.add('iframe-container');
+                                        videoContainer.innerHTML = `
+                                            <iframe src="https://www.youtube.com/embed/er2PS85mJHE?rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                             <button class="close-button">Close</button>
                                         `;
-                                        document.body.appendChild(iframeContainer);
-                                    
-                                        // Trigger the visibility and scaling
-                                        setTimeout(() => {
-                                            iframeContainer.classList.add('iframe-grow');
-                                        }, 10);  // This slight delay ensures CSS is fully parsed and applied before the class changes.
-                                    
-                                        // Handling the close button functionality
-                                        const closeButton = iframeContainer.querySelector('.close-button');
-                                        closeButton.addEventListener('click', () => {
-                                            iframeContainer.classList.remove('iframe-grow');
-                                            iframeContainer.addEventListener('transitionend', () => {
-                                                iframeContainer.remove();
-                                            });
+                                        document.body.appendChild(videoContainer);
+                                        videoContainer.style.display = 'block'; // Make the container visible
+                                        videoContainer.querySelector('.close-button').addEventListener('click', function() {
+                                            videoContainer.remove(); // Remove the container when the close button is clicked
                                         });
                                         break;
                                     case 'thrillingapp':

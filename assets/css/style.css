@@ -1171,38 +1171,14 @@ main {
 .company-text .video {
     flex: 2; /* Allocates less space to the video relative to the text */
     max-width: 400px; /* Restricts the video width */
+    border-radius: 1px; /* Rounds the corners of the iframe */
+    border: 2.5px solid rgba(255, 255, 255, 0.95); /* Adds a white border around the iframe */
+    overflow: hidden; /* Ensures no overflow from the iframe */
 }
 
-.company-text video {
-    width: 320px; /* Ensures the video fills its container */
-    height: 180px; /* Maintains the video aspect ratio */
-    border-radius: 1px;
-    border: 2.5px solid rgba(255, 255, 255, 0.95);
-}
-
-.company-text video::-webkit-media-controls-panel {
-    display: flex;
-    background-color: transparent; /* Makes the control bar background transparent */
-    border: none; /* Removes borders */
-}
-
-.company-text video::-webkit-media-controls-play-button {
-    opacity: 1;
-    border-radius: 5px;
-}
-
-.company-text video::-webkit-media-controls-fullscreen-button {
-    opacity: 1;
-    border-radius: 5px;
-}
-
-/* Hide other specific controls that may not be hidden by default settings */
-.company-text video::-webkit-media-controls-current-time-display,
-.company-text video::-webkit-media-controls-time-remaining-display,
-.company-text video::-webkit-media-controls-mute-button,
-.company-text video::-webkit-media-controls-volume-slider,
-.company-text video::-webkit-media-controls-timeline { /* Hides the seek bar specifically */
-    display: none;
+.company-text iframe {
+    width: 100%; /* Ensures the iframe fills its container */
+    height: 225px; /* Adjust height to maintain aspect ratio approximately 16:9 based on the max-width of 400px */
 }
 
 @media (max-width: 768px) {

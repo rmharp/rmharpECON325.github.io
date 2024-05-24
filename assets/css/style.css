@@ -1240,18 +1240,13 @@ main {
 }
 
 .step {
-    display: flex;
-    align-items: start; /* Aligns the icon with the first line of text */
-    gap: 10px; /* Adjust the space between the icon and the text */
+    display: block; /* This makes the container a block element, default for <p> */
 }
 
 .step-icon {
+    vertical-align: middle; /* Aligns the icon vertically with the text */
     font-size: 32px; /* Size of the icon */
-    flex-shrink: 0; /* Prevents the icon from shrinking */
-}
-
-.step p {
-    margin: 0; /* Removes default paragraph margin */
+    margin-right: 16px; /* Space between the icon and text */
 }
 
 .reviews-section {

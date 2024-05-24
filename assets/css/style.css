@@ -1240,13 +1240,15 @@ main {
 }
 
 .step {
-    display: block; /* This makes the container a block element, default for <p> */
+    display: block; /* Ensures that each step is treated as a block element */
+    margin-bottom: 20px; /* Adds space below each paragraph */
+    vertical-align: middle; /* Keeps text aligned if it wraps to the next line */
 }
 
 .step-icon {
-    vertical-align: middle; /* Aligns the icon vertically with the text */
     font-size: 32px; /* Size of the icon */
-    margin-right: 16px; /* Space between the icon and text */
+    margin-right: 25px; /* Space between the icon and text */
+    vertical-align: middle; /* Aligns the icon vertically with the text */
 }
 
 .reviews-section {

@@ -1181,8 +1181,8 @@ main {
     }
 
     .company-text .video {
-        max-width: 100%; /* Allows the video and gallery to expand on smaller screens */
-        order: -1; /* Moves the video and gallery above the text */
+        max-width: 100%; /* Allows the video to expand on smaller screens */
+        order: -1; /* Moves the video above the text */
     }
 
     .company-text p,

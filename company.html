@@ -338,9 +338,9 @@
                             const images = ['./assets/images/company1.png', './assets/images/company2.png', './assets/images/company3.png'];
                             let currentIndex = 0;
                             
-                            const galleryImg = document.querySelector('.inline-gallery img');
-                            const prevButton = document.querySelector('.inline-gallery-prev');
-                            const nextButton = document.querySelector('.inline-gallery-next');
+                            const galleryImg = document.querySelector('.image-gallery .gallery-img');
+                            const prevButton = document.querySelector('.image-gallery .gallery-prev');
+                            const nextButton = document.querySelector('.image-gallery .gallery-next');
                         
                             const updateImage = () => {
                                 galleryImg.src = images[currentIndex];

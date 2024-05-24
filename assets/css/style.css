@@ -1176,51 +1176,63 @@ main {
 }
 
 @media (max-width: 768px) {
-    .company-text,
-    .mission-and-gallery {
+    .company-text {
         flex-direction: column;
     }
 
-    .company-text .video,
-    .image-gallery {
+    .company-text .video {
         max-width: 100%; /* Allows the video and gallery to expand on smaller screens */
         order: -1; /* Moves the video and gallery above the text */
     }
 
     .company-text p,
-    .company-text .video,
-    .mission-text,
-    .image-gallery {
+    .company-text .video {
         flex: none; /* Resets flex settings for smaller screens */
     }
 }
 
-.mission-and-gallery {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Align top of children */
-    gap: 20px; /* Adjust gap between elements */
-}
-
-.mission-text {
-    flex: 1; /* Takes up remaining space */
-}
-
-.image-gallery {
-    flex: 2; /* Allocates less space to the gallery relative to the text */
+.inline-gallery {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between images */
-    max-width: 400px; /* Restricts the gallery width similar to the video */
-    border-radius: 1px; /* Rounds the corners of the images */
-    border: 2.5px solid rgba(255, 255, 255, 0.95); /* Adds a white border around the images */
-    overflow: hidden; /* Ensures no overflow from the gallery */
+    width: 100%;  /* Makes it full width */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
 }
 
-.image-gallery img {
-    width: 100%; /* Ensure images expand to fill the gallery container */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensures images cover the area properly without distortion */
+.inline-gallery img {
+    width: 100%;  /* Ensures image takes full width of its container */
+    height: auto;  /* Maintains aspect ratio */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.inline-gallery-prev,
+.inline-gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.inline-gallery-prev { left: 10px; }
+.inline-gallery-next { right: 10px; }
+
+@media (max-width: 768px) {
+    .inline-gallery {
+        max-width: none;  /* Overrides any max-width on smaller screens */
+    }
+}
+
+@media (min-width: 768px) {
+    .company-text, .inline-gallery {
+        flex-direction: row;  /* Aligns them side by side on larger screens if needed */
+    }
 }
 
 .reviews-section {

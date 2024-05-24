@@ -336,23 +336,20 @@
 
                         document.addEventListener('DOMContentLoaded', () => {
                             let currentIndex = 1;
-                            const totalImages = 8; // Total number of images
+                            const totalImages = 8; // Adjust this to the total number of images you have
                         
                             const galleryImg = document.querySelector('.image-gallery .gallery-img');
                             const prevButton = document.querySelector('.image-gallery .gallery-prev');
                             const nextButton = document.querySelector('.image-gallery .gallery-next');
                         
-                            const preloadImages = () => {
-                                for (let i = 1; i <= totalImages; i++) {
-                                    const img = new Image();
-                                    img.src = `./assets/images/company${i}.png`;
-                                }
+                            const updateButtons = () => {
+                                prevButton.style.display = currentIndex === 1 ? 'none' : 'block';
+                                nextButton.style.display = currentIndex === totalImages ? 'none' : 'block';
                             };
                         
                             const updateImage = () => {
                                 galleryImg.src = `./assets/images/company${currentIndex}.png`;
-                                prevButton.style.display = currentIndex === 1 ? 'none' : 'block';
-                                nextButton.style.display = currentIndex === totalImages ? 'none' : 'block';
+                                updateButtons();
                             };
                         
                             prevButton.addEventListener('click', () => {
@@ -368,9 +365,8 @@
                                     updateImage();
                                 }
                             });
-
-                            preloadImages(); // Preload images to improve UX
-                            updateImage(); // Initialize gallery
+                        
+                            updateImage(); // Initialize gallery on load
                     </script>
                 </section>
 

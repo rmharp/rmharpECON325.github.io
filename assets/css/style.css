@@ -1239,9 +1239,19 @@ main {
     }
 }
 
+.step {
+    display: flex;
+    align-items: start; /* Aligns the icon with the first line of text */
+    gap: 10px; /* Adjust the space between the icon and the text */
+}
+
 .step-icon {
-    font-size: 40px; /* Adjust the size as needed */
-    vertical-align: middle; /* Aligns icon with the middle of the text */
+    font-size: 32px; /* Size of the icon */
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+
+.step p {
+    margin: 0; /* Removes default paragraph margin */
 }
 
 .reviews-section {

@@ -1191,6 +1191,30 @@ main {
     }
 }
 
+.mission-and-gallery {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align top of children */
+    gap: 20px; /* Adjust gap between elements */
+}
+
+.mission-text {
+    flex: 1; /* Takes up remaining space */
+}
+
+.image-gallery {
+    flex: 1; /* Allows equal spacing for gallery */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between images */
+    max-width: 300px; /* Adjust based on your design preference */
+}
+
+.image-gallery img {
+    width: 100%; /* Ensure images expand to fill the gallery container */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .reviews-section {
     background-color: var(--eerie-black-1); /* Darker background for the section */
     color: var(--white-1); /* White text color for better readability */

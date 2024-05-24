@@ -335,33 +335,39 @@
                         });
 
                         document.addEventListener('DOMContentLoaded', () => {
-                            const images = ['./assets/images/company1.png', './assets/images/company2.png', './assets/images/company3.png'];
-                            let currentIndex = 0;
-                            
+                            let currentIndex = 1;
+                            const totalImages = 10; // Total number of images
+                        
                             const galleryImg = document.querySelector('.image-gallery .gallery-img');
                             const prevButton = document.querySelector('.image-gallery .gallery-prev');
                             const nextButton = document.querySelector('.image-gallery .gallery-next');
                         
+                            const preloadImages = () => {
+                                for (let i = 1; i <= totalImages; i++) {
+                                    const img = new Image();
+                                    img.src = `./assets/images/company${i}.png`;
+                                }
+                            };
+                        
                             const updateImage = () => {
-                                galleryImg.src = images[currentIndex];
+                                galleryImg.src = `./assets/images/company${currentIndex}.png`;
+                                prevButton.style.display = currentIndex === 1 ? 'none' : 'block';
+                                nextButton.style.display = currentIndex === totalImages ? 'none' : 'block';
                             };
                         
                             prevButton.addEventListener('click', () => {
-                                if (currentIndex > 0) {
+                                if (currentIndex > 1) {
                                     currentIndex--;
                                     updateImage();
                                 }
                             });
                         
                             nextButton.addEventListener('click', () => {
-                                if (currentIndex < images.length - 1) {
+                                if (currentIndex < totalImages) {
                                     currentIndex++;
                                     updateImage();
                                 }
                             });
-                        
-                            updateImage(); // Initialize gallery
-                        });
                     </script>
                 </section>
 

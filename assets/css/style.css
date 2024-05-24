@@ -1194,7 +1194,7 @@ main {
 .inline-gallery {
     display: flex;
     flex-direction: column;
-    width: 50%;  /* Makes it full width */
+    width: 100%;  /* Makes it full width */
     margin: auto;
     overflow: hidden;
     position: relative;

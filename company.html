@@ -305,24 +305,33 @@
                         
                             // Image gallery functionality
                             let currentIndex = 1;
-                            const totalImages = 8;
-                            const galleryImg = document.querySelector('.image-gallery .gallery-img');
-                            const prevButton = document.querySelector('.image-gallery .gallery-prev');
-                            const nextButton = document.querySelector('.image-gallery .gallery-next');
+                            const totalImages = 8; // Total number of images, adjust as necessary
                         
-                            const preloadImages = () => {
-                                for (let i = 1; i <= totalImages; i++) {
-                                    const img = new Image();
-                                    img.src = `./assets/images/company${i}.png`;
-                                }
-                            };
+                            const galleryImg = document.querySelector('.inline-gallery img');
+                            const prevButton = document.querySelector('.inline-gallery-prev');
+                            const nextButton = document.querySelector('.inline-gallery-next');
+                        
+                            if (!galleryImg || !prevButton || !nextButton) {
+                                console.error('Gallery elements are not found.');
+                                return;
+                            }
                         
                             const updateImage = () => {
-                                galleryImg.src = `./assets/images/company${currentIndex}.png`;
-                                prevButton.style.display = currentIndex === 1 ? 'none' : 'block';
-                                nextButton.style.display = currentIndex === totalImages ? 'none' : 'block';
+                                galleryImg.style.opacity = 0; // Set opacity to 0 to start the fade-out effect
+                        
+                                setTimeout(() => {
+                                    galleryImg.src = `./assets/images/company${currentIndex}.png`;
+                                    galleryImg.onload = () => { // Ensure the image is loaded before fading in
+                                        galleryImg.style.opacity = 1; // Set opacity back to 1 to fade in the new image
+                                    };
+                                }, 300); // Adjust timeout to match CSS transition time
+                        
+                                // Update button visibility
+                                prevButton.style.display = currentIndex === 1 ? 'none' : 'inline-block';
+                                nextButton.style.display = currentIndex === totalImages ? 'none' : 'inline-block';
                             };
                         
+                            // Event listeners for navigation buttons
                             prevButton.addEventListener('click', () => {
                                 if (currentIndex > 1) {
                                     currentIndex--;
@@ -337,8 +346,7 @@
                                 }
                             });
                         
-                            preloadImages(); // Preload images to improve UX
-                            updateImage(); // Initialize gallery
+                            updateImage(); // Initialize the gallery
                         });
                     </script>
                 </section>

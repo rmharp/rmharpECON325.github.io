@@ -48,18 +48,9 @@ Below is the grading rubric for the website:
 | Criteria                | Ratings      |
 |-------------------------|--------------|
 | **Video**               | 4 pts Full Marks |
-| [view longer description]() | |
 | **Audio**               | 3 pts Full Marks |
-| [view longer description]() | |
 | **Homepage Content pt1** | 2 pts Full Marks |
-| [view longer description]() | |
-| Comments: Written description was really wordy. Loved reading it though. | |
 | **Homepage Content pt 2** | 2 pts Full Marks |
-| [view longer description]() | |
 | **Company Homepage**     | 2 pts Full Marks |
-| [view longer description]() | |
-| Comments: Missing how it works and product photos. | |
 | **Wireframe**           | 2 pts Full Marks |
-| [view longer description]() | |
 | **Effort**              | 5 pts Full Marks |
-| [view longer description]() | |

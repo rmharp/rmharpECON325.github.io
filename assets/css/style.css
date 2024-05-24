@@ -1239,6 +1239,11 @@ main {
     }
 }
 
+.step-icon {
+    font-size: 24px; /* Adjust the size as needed */
+    vertical-align: middle; /* Aligns icon with the middle of the text */
+}
+
 .reviews-section {
     background-color: var(--eerie-black-1); /* Darker background for the section */
     color: var(--white-1); /* White text color for better readability */

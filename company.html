@@ -336,20 +336,32 @@
 
                         document.addEventListener('DOMContentLoaded', () => {
                             let currentIndex = 1;
-                            const totalImages = 8; // Adjust this to the total number of images you have
+                            const totalImages = 8; // Adjust the total number of images
                         
                             const galleryImg = document.querySelector('.image-gallery .gallery-img');
                             const prevButton = document.querySelector('.image-gallery .gallery-prev');
                             const nextButton = document.querySelector('.image-gallery .gallery-next');
                         
-                            const updateButtons = () => {
-                                prevButton.style.display = currentIndex === 1 ? 'none' : 'block';
-                                nextButton.style.display = currentIndex === totalImages ? 'none' : 'block';
+                            if (!galleryImg || !prevButton || !nextButton) {
+                                console.error('One or more elements are missing!');
+                                return; // Stop execution if elements are not found
+                            }
+                        
+                            const preloadImages = () => {
+                                for (let i = 1; i <= totalImages; i++) {
+                                    const img = new Image();
+                                    img.src = `./assets/images/company${i}.png`;
+                                    console.log(`Preloading image: ${img.src}`); // Log preloaded image
+                                }
                             };
                         
                             const updateImage = () => {
                                 galleryImg.src = `./assets/images/company${currentIndex}.png`;
-                                updateButtons();
+                                console.log(`Current image index: ${currentIndex}`); // Log current index
+                        
+                                // Update button visibility
+                                prevButton.style.display = currentIndex === 1 ? 'none' : 'block';
+                                nextButton.style.display = currentIndex === totalImages ? 'none' : 'block';
                             };
                         
                             prevButton.addEventListener('click', () => {
@@ -366,7 +378,9 @@
                                 }
                             });
                         
-                            updateImage(); // Initialize gallery on load
+                            preloadImages(); // Preload images to improve UX
+                            updateImage(); // Initialize gallery
+                        });
                     </script>
                 </section>
 

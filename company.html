@@ -270,96 +270,55 @@
                     </div>
                 
                     <script>
-                        'use strict';
-
-                        // element toggle function
-                        const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-                
-                        // sidebar variables
-                        const sidebar = document.querySelector("[data-sidebar]");
-                        const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-                
-                        // sidebar toggle functionality for mobile
-                        sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-                
-                        // contact form variables
-                        const form = document.querySelector("[data-form]");
-                        const formInputs = document.querySelectorAll("[data-form-input]");
-                        const formBtn = document.querySelector("[data-form-btn]");
-                
-                        // add event to all form input field
-                        for (let i = 0; i < formInputs.length; i++) {
-                            formInputs[i].addEventListener("input", function () {
-                                // check form validation
-                                if (form.checkValidity()) {
-                                    formBtn.removeAttribute("disabled");
-                                } else {
-                                    formBtn.setAttribute("disabled", "");
-                                }
-                            });
-                        }
-                
-                        // page navigation variables
-                        const navigationLinks = document.querySelectorAll("[data-nav-link]");
-                        const pages = document.querySelectorAll("[data-page]");
-                
-                        // add event to all nav link
-                        for (let i = 0; i < navigationLinks.length; i++) {
-                            navigationLinks[i].addEventListener("click", function () {
-                                for (let i = 0; i < pages.length; i++) {
-                                    if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-                                        pages[i].classList.add("active");
-                                        navigationLinks[i].classList.add("active");
-                                        window.scrollTo(0, 0);
-                                    } else {
-                                        pages[i].classList.remove("active");
-                                        navigationLinks[i].classList.remove("active");
-                                    }
-                                }
-                            });
-                        }
-
-                        document.addEventListener("DOMContentLoaded", function() {
-                            fetch('path/to/your/reviews.json')  // Path to your JSON file or API endpoint
-                                .then(response => response.json())
-                                .then(data => {
-                                    const reviewsContainer = document.getElementById('reviews-container');
-                                    data.reviews.forEach(review => {
-                                        const reviewDiv = document.createElement('div');
-                                        reviewDiv.classList.add('review');
-                                        reviewDiv.innerHTML = `<strong>${review.name}</strong><p>${review.text}</p>`;
-                                        reviewsContainer.appendChild(reviewDiv);
-                                    });
-                                })
-                                .catch(error => console.error('Error loading the reviews:', error));
-                        });
-
                         document.addEventListener('DOMContentLoaded', () => {
-                            let currentIndex = 1;
-                            const totalImages = 8; // Adjust the total number of images
+                            'use strict';
                         
+                            // Sidebar toggle functionality
+                            const sidebar = document.querySelector("[data-sidebar]");
+                            const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+                            sidebarBtn.addEventListener("click", function () {
+                                sidebar.classList.toggle("active");
+                            });
+                        
+                            // Contact form validation
+                            const form = document.querySelector("[data-form]");
+                            const formInputs = document.querySelectorAll("[data-form-input]");
+                            const formBtn = document.querySelector("[data-form-btn]");
+                            formInputs.forEach(input => {
+                                input.addEventListener("input", () => {
+                                    formBtn.disabled = !form.checkValidity();
+                                });
+                            });
+                        
+                            // Navigation functionality
+                            const navigationLinks = document.querySelectorAll("[data-nav-link]");
+                            const pages = document.querySelectorAll("[data-page]");
+                            navigationLinks.forEach((link, index) => {
+                                link.addEventListener("click", () => {
+                                    pages.forEach((page, idx) => {
+                                        page.classList.toggle("active", link.innerHTML.toLowerCase() === page.dataset.page);
+                                        navigationLinks[idx].classList.toggle("active", idx === index);
+                                    });
+                                    window.scrollTo(0, 0);
+                                });
+                            });
+                        
+                            // Image gallery functionality
+                            let currentIndex = 1;
+                            const totalImages = 8;
                             const galleryImg = document.querySelector('.image-gallery .gallery-img');
                             const prevButton = document.querySelector('.image-gallery .gallery-prev');
                             const nextButton = document.querySelector('.image-gallery .gallery-next');
-                        
-                            if (!galleryImg || !prevButton || !nextButton) {
-                                console.error('One or more elements are missing!');
-                                return; // Stop execution if elements are not found
-                            }
                         
                             const preloadImages = () => {
                                 for (let i = 1; i <= totalImages; i++) {
                                     const img = new Image();
                                     img.src = `./assets/images/company${i}.png`;
-                                    console.log(`Preloading image: ${img.src}`); // Log preloaded image
                                 }
                             };
                         
                             const updateImage = () => {
                                 galleryImg.src = `./assets/images/company${currentIndex}.png`;
-                                console.log(`Current image index: ${currentIndex}`); // Log current index
-                        
-                                // Update button visibility
                                 prevButton.style.display = currentIndex === 1 ? 'none' : 'block';
                                 nextButton.style.display = currentIndex === totalImages ? 'none' : 'block';
                             };

@@ -1194,13 +1194,13 @@ main {
 .inline-gallery {
     display: flex;
     flex-direction: column;
-    width: 100%;  /* Makes it full width */
+    width: 50%;  /* Makes it full width */
     margin: auto;
     overflow: hidden;
     position: relative;
     padding: 3px; /* Space for the border inside the container */
     box-sizing: border-box; /* Include padding and border in width/height */
-    border: 2.5px solid rgba(255, 255, 255, 0.95);
+    border: 5px solid rgba(255, 255, 255, 0.95);
     border-radius: 1px;
 }
 

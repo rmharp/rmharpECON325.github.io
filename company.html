@@ -219,11 +219,11 @@
                         <p>Chapel Thrill Escapes is a student-run educational non-profit organization focused on providing an outlet for student creativity, entrepreneurship, and collaboration through the creation, operation, and maintenance of escape rooms built by and for students in order to create one-of-a-kind experiences for our community.</p>
                         
                         <div class="image-gallery">
-                            <button class="gallery-prev">&#10094;</button>
+                            <button class="gallery-prev" aria-label="Previous image">&#10094;</button>
                             <div class="gallery-img-wrapper">
                                 <img src="./assets/images/company1.png" alt="Gallery Image 1" class="gallery-img">
                             </div>
-                            <button class="gallery-next">&#10095;</button>
+                            <button class="gallery-next" aria-label="Next image">&#10095;</button>
                         </div>
                     </div>
                     <h2>Our Strategic Vision</h2>
@@ -332,6 +332,35 @@
                                     });
                                 })
                                 .catch(error => console.error('Error loading the reviews:', error));
+                        });
+
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const images = ['./assets/images/company1.png', './assets/images/company2.png', './assets/images/company3.png'];
+                            let currentIndex = 0;
+                            
+                            const galleryImg = document.querySelector('.inline-gallery img');
+                            const prevButton = document.querySelector('.inline-gallery-prev');
+                            const nextButton = document.querySelector('.inline-gallery-next');
+                        
+                            const updateImage = () => {
+                                galleryImg.src = images[currentIndex];
+                            };
+                        
+                            prevButton.addEventListener('click', () => {
+                                if (currentIndex > 0) {
+                                    currentIndex--;
+                                    updateImage();
+                                }
+                            });
+                        
+                            nextButton.addEventListener('click', () => {
+                                if (currentIndex < images.length - 1) {
+                                    currentIndex++;
+                                    updateImage();
+                                }
+                            });
+                        
+                            updateImage(); // Initialize gallery
                         });
                     </script>
                 </section>
